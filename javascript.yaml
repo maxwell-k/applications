@@ -21,7 +21,12 @@
 - name: Run the installed binaries
   command: "{{ item }} --version"
   changed_when: no
-  loop: "{{ lookup('vars', role_name + '_binaries', default=[role_name]) }}"
+  loop: |
+    {{
+      lookup('vars', role_name + '_versions', default=[
+        lookup('vars', role_name + '_binaries', default=role_name)
+      ])
+    }}
   register: javascript_version
 - name: Show the installed version
   tags: [print_action]
@@ -36,7 +41,6 @@
         )
       }}
   when: not javascript_version is skipped
-
 # Copyright 2018 Keith Maxwell
 #
 # Licensed under the Apache License, Version 2.0 (the "License"); you may not

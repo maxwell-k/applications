@@ -29,6 +29,8 @@ For a role, `example`, the follow variables can be set to control behaviour:
 
 - `example_binaries` is a list of the binaries that the role will link from
   `/usr/local/bin/`, defaults to the role name
+- `example_versions` is a list of the binaries that the role will run with
+  `--version`, defaults to `example_binaries`
 
 # Licence
 
