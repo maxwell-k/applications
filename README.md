@@ -6,7 +6,8 @@
 This repository helps the author understand changes to software that he uses.
 
 It consists of Ansible roles to install JavaScript and Python packages. The
-versions of these packages are pinned and updated with [renovate].
+versions of these packages are pinned and updated with [renovate]. Each role
+executes the installed binaries as a test.
 
 # Choice of renovate
 
@@ -21,6 +22,13 @@ Open Source Initiative's [list of approved licences].
 
 Both dependabot and renovate appear to offer similar functionality, but renovate
 is open source.
+
+# Variables
+
+For a role, `example`, the follow variables can be set to control behaviour:
+
+- `example_binaries` is a list of the binaries that the role will link from
+  `/usr/local/bin/`, defaults to the role name
 
 # Licence
 
