@@ -1,7 +1,7 @@
 {
   "name": "installed-with-ansible",
   "version": "1.0.0",
-  "description": "Installed by an Ansible role.",
+  "description": "Installed by Ansible",
   "main": "index.js",
   "dependencies": {
     "prettier": "1.16.4"

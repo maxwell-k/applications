@@ -1,10 +1,10 @@
 {
   "name": "installed-with-ansible",
   "version": "1.0.0",
-  "description": "Installed by an Ansible role.",
+  "description": "Installed by Ansible",
   "main": "index.js",
   "dependencies": {
-    "onchange": "5.0.2"
+    "reload": "2.3.1"
   },
   "repository": {
     "type": "git",

@@ -1,46 +1,43 @@
 - name: Create a directory
+  become: yes
   file:
     state: directory
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
-    path: /opt/{{ role_name }}
+    path: /opt/{{ npm_name }}
 - name: Copy in package.json
   become: no
   copy:
-    src: package.json
-    dest: /opt/{{ role_name }}/package.json
+    src: "{{ npm_name }}/package.json"
+    dest: /opt/{{ npm_name }}/package.json
 - name: Install with NPM
   become: no
-  npm: { path: "/opt/{{ role_name }}" }
+  npm: { path: "/opt/{{ npm_name }}" }
 - name: Install link to binaries
+  become: yes
   file:
     state: link
-    src: /opt/{{ role_name }}/node_modules/.bin/{{ item }}
+    src: /opt/{{ npm_name }}/node_modules/.bin/{{ item }}
     dest: /usr/local/bin/{{ item }}
-  loop: "{{ lookup('vars', role_name + '_binaries', default=[role_name]) }}"
+  loop: "{{ npm_binaries | default([npm_name]) }}"
 - name: Run the installed binaries
   command: "{{ item }} --version"
   changed_when: no
-  loop: |
-    {{
-      lookup('vars', role_name + '_versions', default=[
-        lookup('vars', role_name + '_binaries', default=role_name)
-      ])
-    }}
-  register: javascript_version
+  loop: "{{ npm_versions|default(npm_binaries|default([npm_name])) }}"
+  register: npm_version_check
 - name: Show the installed version
   tags: [print_action]
   debug:
     msg: |
       {{
         dict(
-          javascript_version
+          npm_version_check
           | json_query('results[].cmd')
           | map('join', ' ')
-          | zip( javascript_version | json_query('results[].stdout') )
+          | zip( npm_version_check | json_query('results[].stdout') )
         )
       }}
-  when: not javascript_version is skipped
+  when: not npm_version_check is skipped
 # Copyright 2018 Keith Maxwell
 #
 # Licensed under the Apache License, Version 2.0 (the "License"); you may not

@@ -1,0 +1,46 @@
+- name: Create a package.json
+  hosts: localhost
+  gather_facts: no
+  vars:
+    create_json: |
+      {
+        "name": "installed-with-ansible",
+        "version": "1.0.0",
+        "description": "Installed by Ansible",
+        "main": "index.js",
+        "dependencies": {
+          "{{ create_package }}": "{{ create_query.json.latest }}"
+        },
+        "repository": {
+          "type": "git",
+          "url": "git+https://gitlab.com/keith.maxwell/roles.git"
+        },
+        "author": "Keith Maxwell",
+        "license": "Apache-2.0",
+        "bugs": {
+          "url": "https://gitlab.com/keith.maxwell/roles/issues"
+        },
+        "homepage": "https://gitlab.com/keith.maxwell/roles#readme"
+      }
+  tasks:
+    - name: Package must be defined
+      assert: { that: create_package is defined }
+    - name: Create a directory
+      file: { state: directory, path: "{{ create_package }}" }
+    - name: Query the registry
+      uri:
+        url: https://registry.npmjs.org/-/package/{{ create_package }}/dist-tags
+        return_content: yes
+      register: create_query
+    - name: Create a package.json
+      copy:
+        dest: "{{ create_package }}/package.json"
+        mode: 0o644
+        content: "{{ create_json | to_nice_json }}"
+    - name: Create a main.yaml
+      copy:
+        dest: "{{ create_package }}/main.yaml"
+        mode: 0o644
+        content: |
+          - import_tasks: ../npm.yaml
+            vars: { npm_name: {{ create_package }} }
