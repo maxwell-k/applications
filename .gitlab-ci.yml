@@ -1,0 +1,29 @@
+alpine-edge:
+  image: alpine:edge
+  before_script:
+    - apk add ansible
+    - ansible --version
+  script: [ansible-playbook site.yaml]
+
+ubuntu-xenial:
+  image: ubuntu:xenial
+  before_script:
+    - apt-get update
+    - apt-get install --yes software-properties-common
+    - apt-add-repository --yes --update ppa:ansible/ansible
+    - apt-get install --yes ansible
+    - ansible --version
+  script: [ansible-playbook site.yaml]
+
+debian-stretch:
+  image: debian:stretch
+  before_script:
+    - printf 'deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main\n'
+      > /etc/apt/sources.list.d/ansible.list
+    - apt-get update
+    - apt-get install --yes gnupg
+    - apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
+    - apt-get update
+    - apt-get install --yes ansible
+    - ansible --version
+  script: [ansible-playbook site.yaml]

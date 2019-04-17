@@ -1,3 +1,6 @@
+- name: Install npm
+  become: yes
+  package: { name: npm }
 - name: Create a directory
   become: yes
   file:
@@ -26,7 +29,6 @@
   loop: "{{ npm_versions|default(npm_binaries|default([npm_name])) }}"
   register: npm_version_check
 - name: Show the installed version
-  tags: [print_action]
   debug:
     msg: |
       {{
@@ -38,6 +40,7 @@
         )
       }}
   when: not npm_version_check is skipped
+#
 # Copyright 2018 Keith Maxwell
 #
 # Licensed under the Apache License, Version 2.0 (the "License"); you may not
