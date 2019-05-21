@@ -9,8 +9,8 @@
 - name: Copy in package.json
   become: no
   copy:
-    src: "{{ npm_name }}/package.json"
-    dest: /opt/{{ npm_name }}/package.json
+    src: "{{ npm_name }}/package-lock.json"
+    dest: /opt/{{ npm_name }}/package-lock.json
 - name: Install with NPM
   become: no
   npm: { path: "/opt/{{ npm_name }}" }
