@@ -3,10 +3,32 @@
 [dependabot source code]: https://github.com/dependabot/dependabot-core
 [list of approved licences]: https://opensource.org/licenses/alphabetical
 
-This repository helps the author understand changes to software that he uses.
+This directory helps the author understand changes to software that he uses.
 
-It consists of Ansible roles to install JavaScript and Python packages. The
-versions of these packages are pinned and updated with [renovate].
+It uses Ansible to install JavaScript packages. The versions of these packages
+are pinned and updated with [renovate]. Each installed binary is run with
+`--version` to test the installation.
+
+Each package uses a separate `main.yaml` to account for variations between
+packages for example multiple binaries or the absence of support for
+`--version`.
+
+Packages are installed with `npm ci`.
+
+# Quick start
+
+## Setup a new package
+
+```sh
+ansible-playbook create.yaml -e create_package=gatsby-cli
+```
+
+## Use a package
+
+```
+ansible-console localhost
+import_tasks prettier/main.yaml
+```
 
 # Choice of renovate
 
@@ -22,9 +44,20 @@ Open Source Initiative's [list of approved licences].
 Both dependabot and renovate appear to offer similar functionality, but renovate
 is open source.
 
+# Variables
+
+When importing `npm.yaml` the follow variables can be set to control behaviour:
+
+- `npm_name` is the name of the folder containing `package.json` and
+  `package-lock.json`
+- `npm_binaries` is a list of the binaries to link from `/usr/local/bin/`,
+  defaults to the role name
+- `npm_versions` is a list of the binaries that the role will run with
+  `--version`, defaults to `npm_binaries`
+
 # Licence
 
-Copyright 2018 Keith Maxwell
+Copyright 2018, 2019 Keith Maxwell
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use
 this file except in compliance with the License. You may obtain a copy of the
