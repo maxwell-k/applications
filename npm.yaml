@@ -31,14 +31,11 @@
 - name: Show the installed version
   debug:
     msg: |
-      {{
-        dict(
-          npm_version_check
-          | json_query('results[].cmd')
-          | map('join', ' ')
-          | zip( npm_version_check | json_query('results[].stdout') )
-        )
-      }}
+      {% set output = {} %}
+      {% for i in npm_version_check.results %}
+      {%   set _ignore = output.update({i.cmd | join(' '): i.stdout}) %}
+      {% endfor %}
+      {{ output }}
   when: not npm_version_check is skipped
 #
 # Copyright 2018 Keith Maxwell
