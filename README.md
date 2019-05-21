@@ -5,13 +5,15 @@
 
 This directory helps the author understand changes to software that he uses.
 
-It uses Ansible to install JavaScript and Python packages. The versions of these
-packages are pinned and updated with [renovate]. Each installed binary is run
-with `--version` to test the installation.
+It uses Ansible to install JavaScript packages. The versions of these packages
+are pinned and updated with [renovate]. Each installed binary is run with
+`--version` to test the installation.
 
 Each package uses a separate `main.yaml` to account for variations between
 packages for example multiple binaries or the absence of support for
 `--version`.
+
+Packages are installed with `npm ci`.
 
 # Quick start
 
@@ -25,7 +27,7 @@ ansible-playbook create.yaml -e create_package=gatsby-cli
 
 ```
 ansible-console localhost
-import_tasks gatsby/main.yaml
+import_tasks prettier/main.yaml
 ```
 
 # Choice of renovate
@@ -46,7 +48,8 @@ is open source.
 
 When importing `npm.yaml` the follow variables can be set to control behaviour:
 
-- `npm_name` is the name of the folder containing `package.json`
+- `npm_name` is the name of the folder containing `package.json` and
+  `package-lock.json`
 - `npm_binaries` is a list of the binaries to link from `/usr/local/bin/`,
   defaults to the role name
 - `npm_versions` is a list of the binaries that the role will run with
