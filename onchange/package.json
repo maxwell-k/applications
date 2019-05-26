@@ -4,7 +4,7 @@
   "description": "Installed by Ansible",
   "main": "index.js",
   "dependencies": {
-    "onchange": "5.0.2"
+    "onchange": "6.0.0"
   },
   "repository": {
     "type": "git",
