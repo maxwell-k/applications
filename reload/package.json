@@ -4,7 +4,7 @@
   "description": "Installed by Ansible",
   "main": "index.js",
   "dependencies": {
-    "reload": "2.3.1"
+    "reload": "3.0.1"
   },
   "repository": {
     "type": "git",
