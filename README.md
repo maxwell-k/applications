@@ -17,18 +17,34 @@ Packages are installed with `npm ci`.
 
 # Quick start
 
-## Setup a new package
-
-```sh
-ansible-playbook create.yaml -e create_package=gatsby-cli
-```
-
 ## Use a package
 
+```sh
+ansible-console -i, localhost
 ```
-ansible-console localhost
+
+```
+setup
 import_tasks prettier/main.yaml
 ```
+
+## Setup a new package
+
+Using `jsonlint` as an example.
+
+```sh
+ansible-playbook -i, create.yaml -e create_package=jsonlint
+```
+
+Then try to use the package. Using the package will fail with a message about
+`package-lock.json`. Create a `package-lock.json` manually:
+
+```sh
+cd /opt/jsonlint
+npm install
+```
+
+Copy the resulting `package-lock.json` and use the package again.
 
 # Choice of renovate
 

@@ -1,0 +1,9 @@
+- import_tasks: ../npm.yaml
+  vars:
+    npm_name: jsonlint
+    npm_versions: []
+- name: Check that jsonlint runs OK, jsonlint --version return code is 1
+  command: jsonlint --version
+  changed_when: no
+  register: npm_version_check
+  failed_when: npm_version_check.rc != 1
