@@ -11,4 +11,4 @@
       register: npm_version_check
       failed_when: npm_version_check.rc != 1
     - name: View version number
-      debug: { var: npm_version_check.stdout }
+      debug: { msg: "{{ { 'jsonlint --version': npm_version_check.stdout } }}" }
