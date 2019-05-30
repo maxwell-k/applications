@@ -1,0 +1,7 @@
+#!/bin/sh
+if ! find packages -name main.yaml -exec printf '- import_playbook: {}\n' \; |
+sort |
+cmp - site.yaml > /dev/null; then
+	printf 'site.yaml is incorrect\n'
+	exit 1
+fi

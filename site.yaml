@@ -1,4 +1,7 @@
+- import_playbook: packages/eslint/main.yaml
+- import_playbook: packages/js-yaml/main.yaml
 - import_playbook: packages/jsonlint/main.yaml
+- import_playbook: packages/lint-staged/main.yaml
 - import_playbook: packages/onchange/main.yaml
-- import_playbook: packages/reload/main.yaml
 - import_playbook: packages/prettier/main.yaml
+- import_playbook: packages/reload/main.yaml

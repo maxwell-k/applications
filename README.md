@@ -38,12 +38,12 @@ npm install
 ```
 
 Move the resulting `package-lock.json` into this repository and use the package
-again.
+again. Add a line to `site.yaml`.
 
-Keep `site.yaml` up to date with:
+A pre-commit hook checks that `site.yaml` is up to date:
 
 ```
-find packages -name main.yaml -exec printf '- import_playbook: {}\n' \; > site.yaml
+git config core.hooksPath .githooks
 ```
 
 # Choice of renovate
