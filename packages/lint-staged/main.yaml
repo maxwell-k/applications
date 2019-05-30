@@ -1,0 +1,5 @@
+- name: lint-staged
+  hosts: localhost
+  roles: [npm]
+  vars:
+    npm_name: lint-staged

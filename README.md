@@ -37,7 +37,8 @@ cd /opt/jsonlint
 npm install
 ```
 
-Copy the resulting `package-lock.json` and use the package again.
+Move the resulting `package-lock.json` into this repository and use the package
+again.
 
 Keep `site.yaml` up to date with:
 
