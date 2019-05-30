@@ -1,0 +1,14 @@
+- name: jsonlint
+  hosts: localhost
+  vars:
+    npm_name: jsonlint
+    npm_versions: []
+  roles: [npm]
+  tasks:
+    - name: Check that jsonlint runs OK, jsonlint --version return code is 1
+      command: jsonlint --version
+      changed_when: no
+      register: npm_version_check
+      failed_when: npm_version_check.rc != 1
+    - name: View version number
+      debug: { var: npm_version_check.stdout }

@@ -9,7 +9,7 @@
 - name: Copy in package.json and package-lock.json
   become: no
   copy:
-    src: "{{ npm_name }}/{{ item }}"
+    src: "{{ item }}"
     dest: /opt/{{ npm_name }}/{{ item }}
   loop: [package-lock.json, package.json]
 - name:
