@@ -1,0 +1,14 @@
+- name: Install exact version with npm ci
+  become: no
+  npm:
+    ci: true
+    path: /opt/{{ npm_name }}
+  listen: New lock file
+- name: Install link to binaries
+  become: yes
+  file:
+    state: link
+    src: /opt/{{ npm_name }}/node_modules/.bin/{{ item }}
+    dest: /usr/local/bin/{{ item }}
+  loop: "{{ npm_binaries | default([npm_name]) }}"
+  listen: New lock file

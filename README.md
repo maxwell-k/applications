@@ -17,17 +17,33 @@ Packages are installed with `npm ci`.
 
 # Quick start
 
-## Setup a new package
-
-```sh
-ansible-playbook create.yaml -e create_package=gatsby-cli
-```
-
 ## Use a package
 
+```sh
+ansible-console -i, packages/jsonlint/main.yaml
 ```
-ansible-console localhost
-import_tasks prettier/main.yaml
+
+## Setup a new package
+
+Using `jsonlint` as an example, create the playbook and then try to run it. This
+will fail because it doesn't install the binaries without a `package-lock.json`
+so it cannot run the binaries. Instead create a `package-lock.json` with
+`npm install`.
+
+```sh
+ansible-playbook -i, create.yaml -e create_package=jsonlint
+ansible-playbook -i, packages/jsonlint/main.yaml
+cd /opt/jsonlint
+npm install
+```
+
+Move the resulting `package-lock.json` into this repository and use the package
+again. Add a line to `site.yaml`.
+
+A pre-commit hook checks that `site.yaml` is up to date:
+
+```
+git config core.hooksPath .githooks
 ```
 
 # Choice of renovate

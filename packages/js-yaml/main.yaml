@@ -1,0 +1,5 @@
+- name: js-yaml
+  hosts: localhost
+  roles: [npm]
+  vars:
+    npm_name: js-yaml

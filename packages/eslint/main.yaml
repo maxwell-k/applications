@@ -1,0 +1,5 @@
+- name: eslint
+  hosts: localhost
+  roles: [npm]
+  vars:
+    npm_name: eslint

@@ -1,2 +1,0 @@
-- import_tasks: ../npm.yaml
-  vars: { npm_name: reload }

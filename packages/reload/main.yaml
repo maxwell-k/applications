@@ -1,0 +1,5 @@
+- name: reload
+  hosts: localhost
+  roles: [npm]
+  vars:
+    npm_name: reload

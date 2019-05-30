@@ -6,27 +6,19 @@
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
     path: /opt/{{ npm_name }}
-- name: Copy in package.json and package-lock.json
+- name: Copy in package.json
   become: no
   copy:
-    src: "{{ npm_name }}/{{ item }}"
-    dest: /opt/{{ npm_name }}/{{ item }}
-  loop: [package-lock.json, package.json]
-- name:
-    npm ci, should switch back to the npm module once Ansible 2.8 is available
-    on all distributions
+    src: package.json
+    dest: /opt/{{ npm_name }}/package.json
+- name: Copy package-lock.json
   become: no
-  command: npm ci
-  args:
-    chdir: /opt/{{ npm_name }}
-    creates: /opt/{{ npm_name }}/node_modules
-- name: Install link to binaries
-  become: yes
-  file:
-    state: link
-    src: /opt/{{ npm_name }}/node_modules/.bin/{{ item }}
-    dest: /usr/local/bin/{{ item }}
-  loop: "{{ npm_binaries | default([npm_name]) }}"
+  copy:
+    src: package-lock.json
+    dest: /opt/{{ npm_name }}/package-lock.json
+  notify: New lock file
+  when: "('./packages/'~npm_name~'/package-lock.json') is file"
+- meta: flush_handlers
 - name: Run the installed binaries
   command: "{{ item }} --version"
   changed_when: no

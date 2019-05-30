@@ -1,0 +1,19 @@
+{
+    "author": "Keith Maxwell",
+    "bugs": {
+        "url": "https://gitlab.com/keith.maxwell/roles/issues"
+    },
+    "dependencies": {
+        "eslint": "5.16.0"
+    },
+    "description": "Installed by Ansible",
+    "homepage": "https://gitlab.com/keith.maxwell/roles#readme",
+    "license": "Apache-2.0",
+    "main": "index.js",
+    "name": "installed-with-ansible",
+    "repository": {
+        "type": "git",
+        "url": "git+https://gitlab.com/keith.maxwell/roles.git"
+    },
+    "version": "1.0.0"
+}
