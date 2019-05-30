@@ -1,7 +1,0 @@
-- import_tasks: ../npm.yaml
-  vars:
-    npm_name: onchange
-    npm_versions: []
-- name: Check that onchange runs OK, it doesn't support --version
-  command: onchange
-  changed_when: no
