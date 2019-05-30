@@ -20,12 +20,7 @@ Packages are installed with `npm ci`.
 ## Use a package
 
 ```sh
-ansible-console -i, localhost
-```
-
-```
-setup
-import_tasks prettier/main.yaml
+ansible-console -i, packages/jsonlint/main.yaml
 ```
 
 ## Setup a new package
@@ -45,6 +40,12 @@ npm install
 ```
 
 Copy the resulting `package-lock.json` and use the package again.
+
+Keep `site.yaml` up to date with:
+
+```
+find packages -name main.yaml -exec printf '- import_playbook: {}\n' \; > site.yaml
+```
 
 # Choice of renovate
 
