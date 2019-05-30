@@ -25,16 +25,14 @@ ansible-console -i, packages/jsonlint/main.yaml
 
 ## Setup a new package
 
-Using `jsonlint` as an example.
+Using `jsonlint` as an example, create the playbook and then try to run it. This
+will fail because it doesn't install the binaries without a `package-lock.json`
+so it cannot run the binaries. Instead create a `package-lock.json` with
+`npm install`.
 
 ```sh
 ansible-playbook -i, create.yaml -e create_package=jsonlint
-```
-
-Then try to use the package. Using the package will fail with a message about
-`package-lock.json`. Create a `package-lock.json` manually:
-
-```sh
+ansible-playbook -i, packages/jsonlint/main.yaml
 cd /opt/jsonlint
 npm install
 ```

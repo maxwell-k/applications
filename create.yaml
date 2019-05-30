@@ -26,7 +26,7 @@
     - name: Package must be defined
       assert: { that: create_package is defined }
     - name: Create a directory
-      file: { state: directory, path: "{{ create_package }}" }
+      file: { state: directory, path: "packages/{{ create_package }}" }
     - name: Query the registry
       uri:
         url: https://registry.npmjs.org/-/package/{{ create_package }}/dist-tags
@@ -34,13 +34,16 @@
       register: create_query
     - name: Create a package.json
       copy:
-        dest: "{{ create_package }}/package.json"
+        dest: "packages/{{ create_package }}/package.json"
         mode: 0o644
         content: "{{ create_json | to_nice_json }}"
     - name: Create a main.yaml
       copy:
-        dest: "{{ create_package }}/main.yaml"
+        dest: "packages/{{ create_package }}/main.yaml"
         mode: 0o644
         content: |
-          - import_tasks: ../npm.yaml
-            vars: { npm_name: {{ create_package }} }
+          - name: {{ create_package }}
+            hosts: localhost
+            roles: [npm]
+            vars:
+              npm_name: {{ create_package }}

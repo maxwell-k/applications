@@ -1,0 +1,17 @@
+- name:
+    npm ci, should switch back to the npm module once Ansible 2.8 is available
+    on all distributions
+  become: no
+  command: npm ci
+  args:
+    chdir: /opt/{{ npm_name }}
+    creates: /opt/{{ npm_name }}/node_modules
+  listen: New lock file
+- name: Install link to binaries
+  become: yes
+  file:
+    state: link
+    src: /opt/{{ npm_name }}/node_modules/.bin/{{ item }}
+    dest: /usr/local/bin/{{ item }}
+  loop: "{{ npm_binaries | default([npm_name]) }}"
+  listen: New lock file
