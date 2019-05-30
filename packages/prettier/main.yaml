@@ -1,0 +1,5 @@
+- name: prettier
+  hosts: localhost
+  roles: [npm]
+  vars:
+    npm_name: prettier
