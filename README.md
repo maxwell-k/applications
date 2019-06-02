@@ -40,6 +40,22 @@ npm install
 Move the resulting `package-lock.json` into this repository and use the package
 again. Add a line to `site.yaml`.
 
+## Setup a new Python package
+
+Using `autopep8` as an example:
+
+```
+mkdir packages/autopep8 &&
+cd packages/autopep8 &&
+cp ../black/main.yaml . &&
+echo autopep8 >> requirements.in &&
+pip-compile &&
+cd ../.. &&
+ansible-playbook -i, packages/autopep8/main.yaml
+```
+
+## Checks
+
 A pre-commit hook checks that `site.yaml` is up to date:
 
 ```
