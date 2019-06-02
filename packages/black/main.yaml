@@ -1,5 +1,3 @@
-- name: black
+- name: Apply pip role on localhost
   hosts: localhost
   roles: [pip]
-  vars:
-    pip_name: black
