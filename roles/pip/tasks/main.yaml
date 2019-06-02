@@ -25,7 +25,7 @@
 - name: Run the installed binaries
   command: "{{ item }} --version"
   changed_when: no
-  loop: "{{ pip_versions|default(pip_binaries|default([pip_name])) }}"
+  loop: "{{ pip_versions }}"
   register: pip_version_check
 - name: Show the installed version
   debug:

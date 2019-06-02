@@ -21,5 +21,5 @@
     state: link
     src: /opt/{{ pip_name }}/bin/{{ item }}
     dest: /usr/local/bin/{{ item }}
-  loop: "{{ pip_binaries | default([pip_name]) }}"
+  loop: "{{ pip_binaries }}"
   listen: New requirements file
