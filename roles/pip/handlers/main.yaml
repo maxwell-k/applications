@@ -13,7 +13,7 @@
     requirements: /opt/{{ pip_name }}/requirements.txt
     virtualenv: /opt/{{ pip_name }}
     virtualenv_site_packages: yes
-    virtualenv_command: /usr/bin/env python3 -m venv
+    virtualenv_command: /usr/bin/python3 -m venv
   listen: New requirements file
 - name: Install links to binaries
   become: yes
