@@ -5,15 +5,15 @@
 
 This directory helps the author understand changes to software that he uses.
 
-It uses Ansible to install JavaScript packages. The versions of these packages
-are pinned and updated with [renovate]. Each installed binary is run with
-`--version` to test the installation.
+It uses Ansible to install JavaScript and Python packages. The versions of these
+packages are pinned and updated with [renovate]. Each installed binary is run
+with `--version` to test the installation or equivalent, where possible.
 
 Each package uses a separate `main.yaml` to account for variations between
-packages for example multiple binaries or the absence of support for
-`--version`.
+packages for example multiple binaries, the absence of support for `--version`
+or a non-zero return code.
 
-Packages are installed with `npm ci`.
+Packages are installed with `npm ci` or `pip`.
 
 # Quick start
 
@@ -23,7 +23,7 @@ Packages are installed with `npm ci`.
 ansible-playbook -i, packages/jsonlint/main.yaml
 ```
 
-## Setup a new package
+## Setup a new Node.js package
 
 Using `jsonlint` as an example, create the playbook and then try to run it. This
 will fail because it doesn't install the binaries without a `package-lock.json`
@@ -73,15 +73,14 @@ When importing `npm.yaml` the follow variables can be set to control behaviour:
 
 # Licence
 
-Copyright 2018, 2019 Keith Maxwell
+© 2018, 2019 Keith Maxwell
 
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-this file except in compliance with the License. You may obtain a copy of the
-License at
+All code is subject to the terms of the Mozilla Public License, v. 2.0. You can
+obtain a copy of the MPL at <http://mozilla.org/MPL/2.0/>.
 
-<http://www.apache.org/licenses/LICENSE-2.0>
+<!--
 
-Unless required by applicable law or agreed to in writing, software distributed
-under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
-CONDITIONS OF ANY KIND, either express or implied. See the License for the
-specific language governing permissions and limitations under the License.
+SPDX-License-Identifier: MPL-2.0
+SPDX-Copyright: 2019 Keith Maxwell
+
+-->
