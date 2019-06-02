@@ -1,0 +1,6 @@
+- name: pip-tools
+  hosts: localhost
+  roles: [pip]
+  vars:
+    pip_name: pip-tools
+    pip_binaries: [pip-compile, pip-sync]

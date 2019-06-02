@@ -1,0 +1,16 @@
+- name: Install exact versions with pip
+  become: no
+  pip:
+    requirements: /opt/{{ pip_name }}/requirements.txt
+    virtualenv: /opt/{{ pip_name }}
+    virtualenv_site_packages: yes
+    virtualenv_command: pyvenv
+  listen: New requirements file
+- name: Install links to binaries
+  become: yes
+  file:
+    state: link
+    src: /opt/{{ pip_name }}/bin/{{ item }}
+    dest: /usr/local/bin/{{ item }}
+  loop: "{{ pip_binaries | default([pip_name]) }}"
+  listen: New requirements file
