@@ -10,5 +10,5 @@
     state: link
     src: /opt/{{ npm_name }}/node_modules/.bin/{{ item }}
     dest: /usr/local/bin/{{ item }}
-  loop: "{{ npm_binaries | default([npm_name]) }}"
+  loop: "{{ npm_binaries }}"
   listen: New lock file
