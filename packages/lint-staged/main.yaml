@@ -1,5 +1,3 @@
-- name: lint-staged
+- name: Apply the npm role to localhost
   hosts: localhost
   roles: [npm]
-  vars:
-    npm_name: lint-staged

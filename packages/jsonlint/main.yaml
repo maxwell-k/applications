@@ -1,8 +1,6 @@
-- name: jsonlint
+- name: jsonlint - version check exits with a return code of 1
   hosts: localhost
-  vars:
-    npm_name: jsonlint
-    npm_versions: []
+  vars: { npm_versions: [] }
   roles: [npm]
   tasks:
     - name: Check that jsonlint runs OK, jsonlint --version return code is 1

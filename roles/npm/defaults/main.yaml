@@ -1,2 +1,3 @@
+npm_name: "{{ playbook_dir | basename }}"
 npm_binaries: ["{{ npm_name }}"]
 npm_versions: "{{ npm_binaries }}"

@@ -1,6 +1,4 @@
-- name: fsfe-reuse
+- name: fsfe-reuse binary doesn't match pypi name
   hosts: localhost
   roles: [pip]
-  vars:
-    pip_name: fsfe-reuse
-    pip_binaries: [reuse]
+  vars: { pip_binaries: [reuse] }
