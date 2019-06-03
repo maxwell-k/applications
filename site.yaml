@@ -1,6 +1,7 @@
 - import_playbook: packages/autopep8/main.yaml
 - import_playbook: packages/black/main.yaml
 - import_playbook: packages/eslint/main.yaml
+- import_playbook: packages/flake8/main.yaml
 - import_playbook: packages/fsfe-reuse/main.yaml
 - import_playbook: packages/js-yaml/main.yaml
 - import_playbook: packages/jsonlint/main.yaml
