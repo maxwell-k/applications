@@ -31,7 +31,7 @@ so it cannot run the binaries. Instead create a `package-lock.json` with
 `npm install`.
 
 ```sh
-ansible-playbook -i, create.yaml -e create_package=jsonlint
+ansible-playbook -i, create-npm.yaml -e create_package=jsonlint
 ansible-playbook -i, packages/jsonlint/main.yaml
 cd /opt/jsonlint
 npm install

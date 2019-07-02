@@ -4,7 +4,7 @@
     ci: true
     path: /opt/{{ npm_name }}
   listen: New lock file
-- name: Install link to binaries
+- name: Install links to binaries
   become: yes
   file:
     state: link
