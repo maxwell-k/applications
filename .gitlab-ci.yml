@@ -1,19 +1,29 @@
+# © 2019 Keith Maxwell
+#
+# This Source Code Form is subject to the terms of the Mozilla Public License,
+# v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain
+# one at http://mozilla.org/MPL/2.0/.
+#
+# SPDX-License-Identifier: MPL-2.0
+# SPDX-Copyright: 2019 Keith Maxwell
+#
 alpine-edge:
   image: alpine:edge
   before_script:
+    - ./.githooks/pre-commit
     - chmod o-w .
     - apk add ansible
     - ansible --version
   script: ["ansible-playbook -i, site.yaml"]
 
-ubuntu-xenial:
-  image: ubuntu:xenial
+ubuntu-bionic:
+  image: ubuntu:bionic
   before_script:
     - chmod o-w .
     - apt-get update
     - apt-get install --yes software-properties-common
     - apt-add-repository --yes --update ppa:ansible/ansible
-    - apt-get install --yes ansible
+    - apt-get install --yes ansible python-apt aptitude # for package and apt modules
     - ansible --version
   script: ["ansible-playbook -i, site.yaml"]
 
@@ -27,6 +37,6 @@ debian-stretch:
     - apt-get install --yes gnupg
     - apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
     - apt-get update
-    - apt-get install --yes ansible
+    - apt-get install --yes ansible python-apt # for package and apt modules
     - ansible --version
   script: ["ansible-playbook -i , site.yaml"]
