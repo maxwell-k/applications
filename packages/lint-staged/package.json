@@ -4,7 +4,7 @@
         "url": "https://gitlab.com/keith.maxwell/roles/issues"
     },
     "dependencies": {
-        "lint-staged": "8.2.1"
+        "lint-staged": "9.0.0"
     },
     "description": "Installed by Ansible",
     "homepage": "https://gitlab.com/keith.maxwell/roles#readme",
