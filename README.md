@@ -20,7 +20,7 @@ Packages are installed with `npm ci`.
 ## Use a package
 
 ```sh
-ansible-console -i, packages/jsonlint/main.yaml
+ansible-playbook -i, packages/jsonlint/main.yaml
 ```
 
 ## Setup a new package
