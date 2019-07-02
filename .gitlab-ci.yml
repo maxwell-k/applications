@@ -37,6 +37,6 @@ debian-stretch:
     - apt-get install --yes gnupg
     - apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
     - apt-get update
-    - apt-get install --yes ansible python-apt # for package and apt modules
+    - apt-get install --yes ansible python-apt aptitude # for package and apt modules
     - ansible --version
   script: ["ansible-playbook -i , site.yaml"]

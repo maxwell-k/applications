@@ -22,7 +22,7 @@
 - name: Run the installed binaries
   command: "{{ item }} --version"
   changed_when: no
-  loop: "{{ npm_versions|default(npm_binaries|default([npm_name])) }}"
+  loop: "{{ npm_versions }}"
   register: npm_version_check
 - name: Show the installed version
   debug:
