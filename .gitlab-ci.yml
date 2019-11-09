@@ -12,6 +12,10 @@ alpine-edge:
   before_script:
     - ./.githooks/pre-commit
     - chmod o-w .
+    # on edge the container image and the repo mirrors may not be in sync
+    # upgrading here avoids any errors that would show via ldd
+    - apk update
+    - apk upgrade
     - apk add ansible
     - ansible --version
   script: ["ansible-playbook -i, site.yaml"]
