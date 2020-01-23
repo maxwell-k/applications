@@ -32,7 +32,7 @@ ubuntu-bionic:
   script: ["ansible-playbook -i, site.yaml"]
 
 debian-stretch:
-  image: debian:stretch
+  image: debian:buster
   before_script:
     - chmod o-w .
     - printf 'deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main\n'
