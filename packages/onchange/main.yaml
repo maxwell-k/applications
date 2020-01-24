@@ -1,8 +1,6 @@
-- name: onchange
+- name: onchange doesn't support --version
   hosts: localhost
-  vars:
-    npm_name: onchange
-    npm_versions: []
+  vars: { npm_versions: [] }
   roles: [npm]
   tasks:
     - name: Check that onchange runs OK, it doesn't support --version

@@ -1,0 +1,53 @@
+# © 2019 Keith Maxwell
+#
+# This Source Code Form is subject to the terms of the Mozilla Public License,
+# v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain
+# one at http://mozilla.org/MPL/2.0/.
+#
+# SPDX-License-Identifier: MPL-2.0
+# SPDX-Copyright: 2019 Keith Maxwell
+#
+- name: Install packages required by the pip module
+  become: yes
+  package:
+    name:
+      - python3-venv
+      - python3-pip
+  when: ansible_distribution in ('Ubuntu', 'Debian')
+- name: Install git so pip and npm can use unreleased packages
+  become: yes
+  package: { name: git }
+- name: Create a directory
+  become: yes
+  file:
+    state: directory
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    path: /opt/{{ pip_name }}
+- name: Copy in requirements.txt
+  become: no
+  copy:
+    src: requirements.txt
+    dest: /opt/{{ pip_name }}/requirements.txt
+  notify: New requirements file
+  when: "('./packages/'~pip_name~'/requirements.txt') is file"
+- meta: flush_handlers
+- name: Run the installed binaries
+  command: "{{ item }} --version"
+  changed_when: no
+  environment:
+    # the two variables below are set to avoid an error from click under Python
+    # 3, see http://click.palletsprojects.com/en/5.x/python3/
+    LC_ALL: C.UTF-8
+    LANG: C.UTF-8
+  loop: "{{ pip_versions }}"
+  register: pip_version_check
+- name: Show the installed version
+  debug:
+    msg: |
+      {% set output = {} %}
+      {% for i in pip_version_check.results %}
+      {%   set _ignore = output.update({i.cmd | join(' '): i.stdout}) %}
+      {% endfor %}
+      {{ output }}
+  when: not pip_version_check is skipped

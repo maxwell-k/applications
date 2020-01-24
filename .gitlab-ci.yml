@@ -20,6 +20,12 @@ alpine-edge:
     - ansible --version
   script: ["ansible-playbook -i, site.yaml"]
 
+
+# Installing Ansible on Ubuntu and Debian is based upon the official
+# instructions at https://docs.ansible.com/ansible/latest/installation_guide/
+# To avoid a warning about an unstable command line interface, apt-get is used
+# in place of apt.
+
 ubuntu-bionic:
   image: ubuntu:bionic
   before_script:
@@ -32,14 +38,14 @@ ubuntu-bionic:
   script: ["ansible-playbook -i, site.yaml"]
 
 debian-stretch:
-  image: debian:stretch
+  image: debian:buster
   before_script:
     - chmod o-w .
-    - printf 'deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main\n'
-      > /etc/apt/sources.list.d/ansible.list
     - apt-get update
     - apt-get install --yes gnupg
     - apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
+    - printf 'deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main\n'
+      > /etc/apt/sources.list.d/ansible.list
     - apt-get update
     - apt-get install --yes ansible python-apt aptitude # for package and apt modules
     - ansible --version

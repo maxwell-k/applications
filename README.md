@@ -3,17 +3,20 @@
 [dependabot source code]: https://github.com/dependabot/dependabot-core
 [list of approved licences]: https://opensource.org/licenses/alphabetical
 
+[![reuse compliant](https://reuse.software/badge/reuse-compliant.svg)](https://reuse.software/)
+
 This directory helps the author understand changes to software that he uses.
 
-It uses Ansible to install JavaScript packages. The versions of these packages
-are pinned and updated with [renovate]. Each installed binary is run with
-`--version` to test the installation.
+It uses Ansible to install JavaScript and Python packages. The versions of these
+packages are pinned and updated with [renovate]. Where possible each installed
+binary is run with `--version`, or equivalent, to test the installation.
 
 Each package uses a separate `main.yaml` to account for variations between
-packages for example multiple binaries or the absence of support for
-`--version`.
+packages for example multiple binaries, the absence of support for `--version`
+or a non-zero return code.
 
-Packages are installed with `npm ci`.
+Packages are installed with `npm ci` or `pip`. Installation is tested on in
+GitLab CI on recent versions of Alpine Linux, Debian and Ubuntu.
 
 # Quick start
 
@@ -23,7 +26,7 @@ Packages are installed with `npm ci`.
 ansible-playbook -i, packages/jsonlint/main.yaml
 ```
 
-## Setup a new package
+## Setup a new Node.js package
 
 Using `jsonlint` as an example, create the playbook and then try to run it. This
 will fail because it doesn't install the binaries without a `package-lock.json`
@@ -39,6 +42,23 @@ npm install
 
 Move the resulting `package-lock.json` into this repository and use the package
 again. Add a line to `site.yaml`.
+
+## Setup a new Python package
+
+The main task is to create a suitable `requirements.txt`. Using `autopep8` as an
+example:
+
+```
+mkdir packages/autopep8 &&
+cd packages/autopep8 &&
+cp ../black/main.yaml . &&
+echo autopep8 >> requirements.in &&
+pip-compile &&
+cd ../.. &&
+ansible-playbook -i, packages/autopep8/main.yaml
+```
+
+# Checks
 
 A pre-commit hook checks that `site.yaml` is up to date:
 
@@ -62,26 +82,24 @@ is open source.
 
 # Variables
 
-When importing `npm.yaml` the follow variables can be set to control behaviour:
+In the two roles, `npm` and `pip` the following variables are used:
 
-- `npm_name` is the name of the folder containing `package.json` and
-  `package-lock.json`
-- `npm_binaries` is a list of the binaries to link from `/usr/local/bin/`,
+- `???_name` is the name of the folder containing `main.yaml` and the lock files
+- `???_binaries` is a list of the binaries to link from `/usr/local/bin/`,
   defaults to the role name
-- `npm_versions` is a list of the binaries that the role will run with
+- `???_versions` is a list of the binaries that the role will run with
   `--version`, defaults to `npm_binaries`
 
 # Licence
 
-Copyright 2018, 2019 Keith Maxwell
+© 2018, 2019 Keith Maxwell
 
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-this file except in compliance with the License. You may obtain a copy of the
-License at
+All code is subject to the terms of the Mozilla Public License, v. 2.0. You can
+obtain a copy of the MPL at <http://mozilla.org/MPL/2.0/>.
 
-<http://www.apache.org/licenses/LICENSE-2.0>
+<!--
 
-Unless required by applicable law or agreed to in writing, software distributed
-under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
-CONDITIONS OF ANY KIND, either express or implied. See the License for the
-specific language governing permissions and limitations under the License.
+SPDX-License-Identifier: MPL-2.0
+SPDX-Copyright: 2019 Keith Maxwell
+
+-->

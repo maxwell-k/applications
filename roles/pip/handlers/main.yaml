@@ -7,17 +7,19 @@
 # SPDX-License-Identifier: MPL-2.0
 # SPDX-Copyright: 2019 Keith Maxwell
 #
-- name: Install exact version with npm ci
+- name: Install exact versions with pip
   become: no
-  npm:
-    ci: true
-    path: /opt/{{ npm_name }}
-  listen: New lock file
+  pip:
+    requirements: /opt/{{ pip_name }}/requirements.txt
+    virtualenv: /opt/{{ pip_name }}
+    virtualenv_site_packages: yes
+    virtualenv_command: /usr/bin/python3 -m venv
+  listen: New requirements file
 - name: Install links to binaries
   become: yes
   file:
     state: link
-    src: /opt/{{ npm_name }}/node_modules/.bin/{{ item }}
+    src: /opt/{{ pip_name }}/bin/{{ item }}
     dest: /usr/local/bin/{{ item }}
-  loop: "{{ npm_binaries }}"
-  listen: New lock file
+  loop: "{{ pip_binaries }}"
+  listen: New requirements file

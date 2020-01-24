@@ -1,0 +1,31 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: applications
+Upstream-Contact: Keith Maxwell <keith.maxwell@gmail.com>
+Source: https://gitlab.com/maxwell-k/applications
+
+Files: site.yaml
+Copyright: 2019 Keith Maxwell
+License: MPL-2.0
+Comment: Machine generated source code - index to packages
+
+Files: packages/*/main.yaml
+Copyright: 2019 Keith Maxwell
+License: MPL-2.0
+Comment: Indiviual source code files
+  Generally shorter than the 9 lines of boilerplate, so do not include it
+  directly.
+
+Files: ansible.cfg renovate.json 
+Copyright: 2019 Keith Maxwell
+License: CC0-1.0
+Comment: Configuration files not subject to MPL-2.0
+
+Files: packages/*/package.json packages/*/requirements.in
+Copyright: 2019 Keith Maxwell
+License: CC0-1.0
+Comment: Simple lists of dependencies not subject to MPL-2.0
+
+Files: packages/*/package-lock.json packages/*/requirements.txt
+Copyright: 2019 Keith Maxwell
+License: CC0-1.0
+Comment: Lock files not subject to MPL-2.0
