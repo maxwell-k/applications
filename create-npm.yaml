@@ -22,14 +22,14 @@
         },
         "repository": {
           "type": "git",
-          "url": "git+https://gitlab.com/keith.maxwell/roles.git"
+          "url": "git+https://gitlab.com/maxwell-k/applications.git"
         },
         "author": "Keith Maxwell",
         "license": "Apache-2.0",
         "bugs": {
-          "url": "https://gitlab.com/keith.maxwell/roles/issues"
+          "url": "https://gitlab.com/maxwell-k/applications/issues"
         },
-        "homepage": "https://gitlab.com/keith.maxwell/roles#readme"
+        "homepage": "https://gitlab.com/maxwell-k/applications#readme"
       }
   tasks:
     - name: Package must be defined
