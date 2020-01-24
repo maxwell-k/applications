@@ -26,6 +26,10 @@ alpine-edge:
 # To avoid a warning about an unstable command line interface, apt-get is used
 # in place of apt.
 
+# python-apt and aptitude are required for Ansible's package and apt modules
+# these are used for example in ./roles/npm/tasks/node-distribution.yaml and
+# ./roles/pip/tasks/main.yaml
+
 ubuntu-bionic:
   image: ubuntu:bionic
   before_script:
@@ -34,7 +38,7 @@ ubuntu-bionic:
     - apt-get upgrade --yes
     - apt-get install --yes software-properties-common
     - apt-add-repository --yes --update ppa:ansible/ansible
-    - apt-get install --yes ansible python-apt aptitude # for package and apt modules
+    - apt-get install --yes ansible python-apt aptitude
     - ansible --version
   script: ["ansible-playbook -i, site.yaml"]
 
@@ -49,6 +53,6 @@ debian-stretch:
     - printf 'deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main\n'
       > /etc/apt/sources.list.d/ansible.list
     - apt-get update
-    - apt-get install --yes ansible python-apt aptitude # for package and apt modules
+    - apt-get install --yes ansible python-apt aptitude
     - ansible --version
   script: ["ansible-playbook -i , site.yaml"]
