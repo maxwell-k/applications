@@ -31,6 +31,7 @@ ubuntu-bionic:
   before_script:
     - chmod o-w .
     - apt-get update
+    - apt-get upgrade --yes
     - apt-get install --yes software-properties-common
     - apt-add-repository --yes --update ppa:ansible/ansible
     - apt-get install --yes ansible python-apt aptitude # for package and apt modules
@@ -42,6 +43,7 @@ debian-stretch:
   before_script:
     - chmod o-w .
     - apt-get update
+    - apt-get upgrade --yes
     - apt-get install --yes gnupg
     - apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
     - printf 'deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main\n'
