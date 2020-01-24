@@ -1,2 +1,2 @@
 # bootstrapped manually
-pip-tools==3.7.0
+pip-tools==4.4.0
