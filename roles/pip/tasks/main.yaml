@@ -14,9 +14,6 @@
       - python3-venv
       - python3-pip
   when: ansible_distribution in ('Ubuntu', 'Debian')
-- name: Install git so pip and npm can use unreleased packages
-  become: yes
-  package: { name: git }
 - name: Create a directory
   become: yes
   file:
