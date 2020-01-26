@@ -4,7 +4,8 @@
   "description": "Installed by Ansible",
   "main": "index.js",
   "dependencies": {
-    "prettier": "1.19.1"
+    "prettier": "1.19.1",
+    "prettier-plugin-svelte": "0.7.0"
   },
   "repository": {
     "type": "git",
