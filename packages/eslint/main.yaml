@@ -1,3 +1,0 @@
-- name: Apply the npm role to localhost
-  hosts: localhost
-  roles: [npm]
