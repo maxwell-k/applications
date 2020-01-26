@@ -1,24 +1,6 @@
 - name: Apply pip role on localhost
   hosts: localhost
   pre_tasks:
-    - name: Download a public key to allow the next task to succeed
-      get_url:
-        url: https://aports.keithmaxwell.uk/user/keith.maxwell@gmail.com-5a1151a5.rsa.pub
-        dest: /etc/apk/keys/keith.maxwell@gmail.com-5a1151a5.rsa.pub
-        checksum: sha256:46e67c9c8e6eaa0d2491e2f50584ebe2d2b3adb4e81902aafa4d288cca0f484c
-      when: ansible_distribution == 'Alpine'
-    - name:
-        On Alpine Linux, install a version of py3-google-auth that is compatible
-        with current edge so that beancount can be installed. Waiting for
-        https://gitlab.alpinelinux.org/alpine/aports/merge_requests/3341 to be
-        merged, then these two tasks can be deleted.
-      apk:
-        name: py3-google-auth
-        repository:
-          - http://dl-cdn.alpinelinux.org/alpine/edge/main
-          - http://dl-cdn.alpinelinux.org/alpine/edge/community
-          - https://aports.keithmaxwell.uk/user
-      when: ansible_distribution == 'Alpine'
     - name:
         On Alpine Linux, install beancount from the testing repository because
         it includes a parser written in C, on other distributions a wheel is
