@@ -48,7 +48,7 @@ soupsieve==1.9.5          # via beautifulsoup4
 uritemplate==3.0.1        # via google-api-python-client
 urllib3==1.25.8           # via requests
 wcwidth==0.1.8            # via pytest
-werkzeug==0.16.0          # via fava, flask
+werkzeug==0.16.1          # via fava, flask
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools
