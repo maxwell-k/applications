@@ -24,8 +24,8 @@ httplib2==0.17.0          # via google-api-python-client, google-auth-httplib2
 idna==2.8                 # via requests
 itsdangerous==1.1.0       # via flask
 jaraco.functools==3.0.0   # via cheroot
-jinja2==2.10.3            # via fava, flask, flask-babel
-lxml==4.4.2               # via beancount
+jinja2==2.10.3
+lxml==4.4.3
 markdown2==2.3.8          # via fava
 markupsafe==1.1.1         # via jinja2
 more-itertools==8.1.0     # via cheroot, jaraco.functools, pytest
