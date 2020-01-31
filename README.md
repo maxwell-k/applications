@@ -18,6 +18,9 @@ or a non-zero return code.
 Packages are installed with `npm ci` or `pip`. Installation is tested on in
 GitLab CI on recent versions of Alpine Linux, Debian and Ubuntu.
 
+On Alpine Linux the repository does not compile C code. Instead the playbooks
+pull in system packages.
+
 # Quick start
 
 ## Use a package
