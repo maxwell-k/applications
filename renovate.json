@@ -1,5 +1,13 @@
 {
   "extends": [
     "config:base"
+  ],
+  "hostRules": [
+    {
+      "domainName": "github.com",
+      "encrypted": {
+        "token": "oNX77wkUMpbDSHJaAvMEz7yL2w79JtTR8lbkDDgkDOx+xzmnbNDSxQHkzR2Lj8njDR4RefDjN4IjqS3pbw6mEY1k0Af3hxbR482zQrwOs0GlUU0ZFepmoJqjzQo7LCAml7q8VpMLpjmBN6aZZeS6/YxLktY1DMbHD4bWgv7gxlUJ3f+tSqmUf4LJXbAIEu1ZRLGf/SvrvVzLKWUSKpGh2k6b7AyZtH0zvBVIqRvNoD7x7myKli1GlCFAhZxyG7q81P2/wN7bWUv607828NAQtcFR/174IkedKR+XlOwhJm3e7qz/CfclQK4NcogYn5Vp6yj2+em/lB4IPFgdYRXeYQ=="
+      }
+    }
   ]
 }
