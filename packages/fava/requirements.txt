@@ -15,7 +15,7 @@ chardet==3.0.4            # via beancount, requests
 cheroot==8.3.0            # via fava
 click==7.0                # via fava, flask
 fava==1.13
-flask-babel==0.12.2       # via fava
+flask-babel==1.0.0       # via fava
 flask==1.1.1              # via fava, flask-babel
 google-api-python-client==1.7.11  # via beancount
 google-auth-httplib2==0.0.3  # via google-api-python-client
