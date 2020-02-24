@@ -21,7 +21,7 @@ google-api-python-client==1.7.11  # via beancount
 google-auth-httplib2==0.0.3  # via google-api-python-client
 google-auth==1.11.0       # via google-api-python-client, google-auth-httplib2
 httplib2==0.17.0          # via google-api-python-client, google-auth-httplib2
-idna==2.8                 # via requests
+idna==2.9                 # via requests
 itsdangerous==1.1.0       # via flask
 jaraco.functools==3.0.0   # via cheroot
 jinja2==2.11.1
