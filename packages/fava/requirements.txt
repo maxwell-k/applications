@@ -44,7 +44,7 @@ requests==2.22.0          # via beancount
 rsa==4.0                  # via google-auth
 simplejson==3.17.0        # via fava
 six==1.14.0               # via cheroot, google-api-python-client, google-auth, packaging, python-dateutil
-soupsieve==1.9.5          # via beautifulsoup4
+soupsieve==2.0          # via beautifulsoup4
 uritemplate==3.0.1        # via google-api-python-client
 urllib3==1.25.8           # via requests
 wcwidth==0.1.8            # via pytest
