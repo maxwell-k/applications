@@ -13,7 +13,7 @@ jinja2==2.11.1
 license-expression==1.2   # via reuse
 markupsafe==1.1.1         # via jinja2
 python-debian==0.1.36     # via reuse
-requests==2.22.0          # via reuse
+requests==2.23.0          # via reuse
 reuse==0.8.1
 six==1.14.0               # via python-debian
 urllib3==1.25.8           # via requests
