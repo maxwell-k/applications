@@ -1,0 +1,8 @@
+- name: uncommitted doesn't support --version
+  hosts: localhost
+  vars: { pip_versions: [] }
+  roles: [pip]
+  tasks:
+    - name: Check that uncommitted runs OK, it doesn't support --version
+      command: uncommitted --help
+      changed_when: no
