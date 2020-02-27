@@ -16,10 +16,9 @@ alpine-edge:
     # upgrading here avoids any errors that would show via ldd
     - apk update
     - apk upgrade
-    - apk add ansible
+    - apk add ansible py3-pip
     - ansible --version
   script: ["ansible-playbook -i, site.yaml"]
-
 
 # Installing Ansible on Ubuntu and Debian is based upon the official
 # instructions at https://docs.ansible.com/ansible/latest/installation_guide/
