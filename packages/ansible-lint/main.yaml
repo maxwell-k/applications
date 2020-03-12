@@ -1,12 +1,9 @@
 - name: Apply pip role on localhost
   hosts: localhost
   pre_tasks:
-    - name:
-        On Alpine Linux, install beancount from the testing repository because
-        it includes a parser written in C, on other distributions a wheel is
-        available
+    - name: Install dependencies with compiled extensions on Alpine Linux
       apk:
-        name: beancount
+        name: [ansible, py3-ruamel.yaml.clib]
         repository:
           - http://dl-cdn.alpinelinux.org/alpine/edge/main
           - http://dl-cdn.alpinelinux.org/alpine/edge/community
