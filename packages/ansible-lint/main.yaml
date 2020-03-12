@@ -1,0 +1,11 @@
+- name: Apply pip role on localhost
+  hosts: localhost
+  pre_tasks:
+    - name: Install dependencies with compiled extensions on Alpine Linux
+      apk:
+        name: [ansible, py3-ruamel.yaml.clib]
+        repository:
+          - http://dl-cdn.alpinelinux.org/alpine/edge/main
+          - http://dl-cdn.alpinelinux.org/alpine/edge/community
+      when: ansible_distribution == 'Alpine'
+  roles: [pip]
