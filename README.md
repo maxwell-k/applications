@@ -61,6 +61,16 @@ cd ../.. &&
 ansible-playbook -i, packages/autopep8/main.yaml
 ```
 
+For `pip-compile` on Alpine Linux to succeed it may help to have `alpine-sdk`
+and `py3-wheel` installed.
+
+`pre_tasks` that install Alpine Linux packages with the `apk` Ansible module do
+not have `become: yes` set because when:
+
+1. running on CI, `ansible-playbook` will be run as root
+2. running locally, with tags like `@testing` in `/etc/apk/repositories` the
+   pre-task will fail unless the packages are already installed.
+
 # Checks
 
 A pre-commit hook checks that `site.yaml` is up to date:
