@@ -10,6 +10,5 @@
 - import_playbook: packages/lint-staged/main.yaml
 - import_playbook: packages/pip-tools/main.yaml
 - import_playbook: packages/prettier/main.yaml
-- import_playbook: packages/reload/main.yaml
 - import_playbook: packages/reuse/main.yaml
 - import_playbook: packages/uncommitted/main.yaml
