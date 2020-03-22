@@ -11,7 +11,7 @@ cryptography==2.8         # via ansible
 jinja2==2.11.1            # via ansible
 markupsafe==1.1.1         # via jinja2
 pycparser==2.20           # via cffi
-pyyaml==5.3               # via ansible, ansible-lint
+pyyaml==5.3.1               # via ansible, ansible-lint
 ruamel.yaml.clib==0.2.0   # via -r requirements.in, ruamel.yaml
 ruamel.yaml==0.16.10      # via ansible-lint
 six==1.14.0               # via ansible-lint, cryptography
