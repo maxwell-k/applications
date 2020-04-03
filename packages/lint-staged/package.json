@@ -4,7 +4,7 @@
     "url": "https://gitlab.com/maxwell-k/applications/issues"
   },
   "dependencies": {
-    "lint-staged": "10.0.8"
+    "lint-staged": "10.1.1"
   },
   "description": "Installed by Ansible",
   "homepage": "https://gitlab.com/maxwell-k/applications#readme",
