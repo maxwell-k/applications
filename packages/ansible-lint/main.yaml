@@ -1,4 +1,4 @@
-- name: Apply pip role on localhost
+- name: Install {{ playbook_dir | basename }} application with pip on localhost
   hosts: localhost
   pre_tasks:
     - name: Install dependencies with compiled extensions on Alpine Linux

@@ -1,4 +1,4 @@
-- name: pip-tools includes two binaries
+- name: Install {{ playbook_dir | basename }} application with pip on localhost
   hosts: localhost
   roles: [pip]
   vars: { pip_binaries: [pip-compile, pip-sync] }

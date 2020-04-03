@@ -1,3 +1,3 @@
-- name: Apply pip role on localhost
+- name: Install {{ playbook_dir | basename }} application with pip on localhost
   hosts: localhost
   roles: [pip]
