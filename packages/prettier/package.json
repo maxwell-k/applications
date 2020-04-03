@@ -4,7 +4,7 @@
   "description": "Installed by Ansible",
   "main": "index.js",
   "dependencies": {
-    "prettier": "1.19.1"
+    "prettier": "2.0.2"
   },
   "repository": {
     "type": "git",
