@@ -1,4 +1,4 @@
-- name: jsonlint - version check exits with a return code of 1
+- name: Install {{ playbook_dir | basename }} application with npm on localhost
   hosts: localhost
   vars: { npm_versions: [] }
   roles: [npm]
