@@ -54,5 +54,4 @@
           - name: {{ create_package }}
             hosts: localhost
             roles: [npm]
-            vars:
-              npm_name: {{ create_package }}
+            vars: { npm_name: {{ create_package }} }
