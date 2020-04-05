@@ -1,0 +1,4 @@
+- name: embedme
+  hosts: localhost
+  roles: [npm]
+  vars: { npm_name: embedme }
