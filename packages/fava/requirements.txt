@@ -16,7 +16,7 @@ cheroot==8.3.0            # via fava
 click==7.1.1                # via fava, flask
 fava==1.14
 flask-babel==1.0.0       # via fava
-flask==1.1.1              # via fava, flask-babel
+flask==1.1.2              # via fava, flask-babel
 google-api-python-client==1.8.0  # via beancount
 google-auth-httplib2==0.0.3  # via google-api-python-client
 google-auth==1.11.3       # via google-api-python-client, google-auth-httplib2
