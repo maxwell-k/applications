@@ -19,7 +19,7 @@ flask-babel==1.0.0       # via fava
 flask==1.1.2              # via fava, flask-babel
 google-api-python-client==1.8.0  # via beancount
 google-auth-httplib2==0.0.3  # via google-api-python-client
-google-auth==1.13.1       # via google-api-python-client, google-auth-httplib2
+google-auth==1.14.0       # via google-api-python-client, google-auth-httplib2
 httplib2==0.17.2          # via google-api-python-client, google-auth-httplib2
 idna==2.9                 # via requests
 itsdangerous==1.1.0       # via flask
