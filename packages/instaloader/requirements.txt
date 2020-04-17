@@ -9,4 +9,4 @@ chardet==3.0.4            # via requests
 idna==2.9                 # via requests
 instaloader==4.3.2        # via -r requirements.in
 requests==2.23.0          # via instaloader
-urllib3==1.25.8           # via requests
+urllib3==1.25.9           # via requests
