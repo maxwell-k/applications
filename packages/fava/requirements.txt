@@ -23,7 +23,7 @@ google-auth==1.14.1       # via google-api-python-client, google-auth-httplib2
 httplib2==0.17.3          # via google-api-python-client, google-auth-httplib2
 idna==2.9                 # via requests
 itsdangerous==1.1.0       # via flask
-jaraco.functools==3.0.0   # via cheroot
+jaraco.functools==3.0.1   # via cheroot
 jinja2==2.11.2
 lxml==4.5.0
 markdown2==2.3.8          # via fava
