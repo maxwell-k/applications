@@ -4,7 +4,7 @@
         "url": "https://gitlab.com/maxwell-k/applications/issues"
     },
     "dependencies": {
-        "embedme": "1.20.0"
+        "embedme": "1.21.0"
     },
     "description": "Installed by Ansible",
     "homepage": "https://gitlab.com/maxwell-k/applications#readme",
