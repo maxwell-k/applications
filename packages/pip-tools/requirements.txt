@@ -4,6 +4,6 @@
 #
 #    pip-compile
 #
-click==7.1.1                # via pip-tools
+click==7.1.2                # via pip-tools
 pip-tools==5.1.1
 six==1.14.0               # via pip-tools
