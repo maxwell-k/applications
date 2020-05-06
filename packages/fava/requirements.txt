@@ -38,7 +38,7 @@ pyasn1==0.4.8             # via pyasn1-modules, rsa
 pyparsing==2.4.7          # via packaging
 pytest==5.4.1             # via beancount
 python-dateutil==2.8.1    # via beancount
-python-magic==0.4.15      # via beancount
+python-magic==0.4.18      # via beancount
 pytz==2020.1              # via babel
 requests==2.23.0          # via beancount
 rsa==4.0                  # via google-auth
