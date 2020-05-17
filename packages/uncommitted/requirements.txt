@@ -4,4 +4,4 @@
 #
 #    pip-compile
 #
-uncommitted==2.2          # via -r requirements.in (line 1)
+uncommitted==2.3          # via -r requirements.in (line 1)

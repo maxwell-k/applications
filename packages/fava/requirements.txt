@@ -26,7 +26,7 @@ itsdangerous==1.1.0       # via flask
 jaraco.functools==3.0.1   # via cheroot
 jinja2==2.11.2
 lxml==4.5.0
-markdown2==2.3.8          # via fava
+markdown2==2.3.9          # via fava
 markupsafe==1.1.1         # via jinja2
 more-itertools==8.3.0     # via cheroot, jaraco.functools, pytest
 packaging==20.3           # via pytest
