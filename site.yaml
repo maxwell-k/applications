@@ -1,5 +1,4 @@
 - import_playbook: packages/ansible-lint/main.yaml
-- import_playbook: packages/autopep8/main.yaml
 - import_playbook: packages/black/main.yaml
 - import_playbook: packages/embedme/main.yaml
 - import_playbook: packages/fava/main.yaml
