@@ -8,8 +8,9 @@
 This directory helps the author understand changes to software that he uses.
 
 It uses Ansible to install JavaScript and Python packages. The versions of these
-packages are pinned and updated with [renovate]. Where possible each installed
-binary is run with `--version`, or equivalent, to test the installation.
+packages and their dependencies are pinned and updated with [renovate]. Where
+possible each installed binary is run with `--version`, or equivalent, to test
+the installation.
 
 Each package uses a separate `main.yaml` to account for variations between
 packages for example multiple binaries, the absence of support for `--version`
@@ -102,6 +103,20 @@ In the two roles, `npm` and `pip` the following variables are used:
   defaults to the role name
 - `???_versions` is a list of the binaries that the role will run with
   `--version`, defaults to `npm_binaries`
+
+# Multiple upgrades from renovate
+
+The author has a preference for [semi-linear
+merges](https://github.com/maxwell-k/semi-linear). If there are a large number
+of merge requests this can be time consuming for a CI system. One solution is to
+cherry pick multiple renovate branches into one. A strategy for doing this is
+below:
+
+```sh
+git ls-remote origin 'refs/heads/renovate/*' | sed 's,.*heads/,,'
+git fetch origin renovate/uncommitted-2.x
+git cherry-pick FETCH_HEAD
+```
 
 # Licence
 
