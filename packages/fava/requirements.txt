@@ -17,7 +17,7 @@ click==7.1.2                # via fava, flask
 fava==1.14
 flask-babel==1.0.0       # via fava
 flask==1.1.2              # via fava, flask-babel
-google-api-python-client==1.8.2  # via beancount
+google-api-python-client==1.8.3  # via beancount
 google-auth-httplib2==0.0.3  # via google-api-python-client
 google-auth==1.14.1       # via google-api-python-client, google-auth-httplib2
 httplib2==0.17.3          # via google-api-python-client, google-auth-httplib2
