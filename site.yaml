@@ -5,7 +5,6 @@
 - import_playbook: packages/fava/main.yaml
 - import_playbook: packages/flake8/main.yaml
 - import_playbook: packages/git-revise/main.yaml
-- import_playbook: packages/goobook/main.yaml
 - import_playbook: packages/hovercraft/main.yaml
 - import_playbook: packages/instaloader/main.yaml
 - import_playbook: packages/isort/main.yaml
