@@ -54,7 +54,7 @@ example:
 ```
 mkdir packages/autopep8 &&
 cd packages/autopep8 &&
-cp ../black/main.yaml . &&
+cp ../hovercraft/main.yaml . &&
 echo autopep8 > requirements.in &&
 pip-compile &&
 cd ../.. &&
