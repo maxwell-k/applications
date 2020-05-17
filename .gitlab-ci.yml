@@ -38,9 +38,15 @@ ubuntu:
     - apt-get update
     - apt-get upgrade --yes
     - echo -e "section_start:$(date +%s):install\r\e[0KInstalling Ansible"
-    - apt-get install --yes software-properties-common
-    - apt-add-repository --yes --update ppa:ansible/ansible
-    - apt-get install --yes ansible python-apt aptitude
+    # Use the Ubuntu packaged ansible until Ansible 2.10 is released
+    # CI completes more quickly with the most recent LTS
+    - apt-get install --yes ansible
+    # The first official release of ansible for Ubuntu 20.04 will be 2.10
+    # Before that release there won't be a fossa package in the PPA, see
+    # https://github.com/ansible/ansible/issues/68645
+    # - apt-get install --yes software-properties-common
+    # - apt-add-repository --yes --update ppa:ansible/ansible
+    # - apt-get install --yes ansible python-apt aptitude
     - ansible --version
     - echo -e "section_start:$(date +%s):site\r\e[0KRunning site.yaml"
   script: ["ansible-playbook -i, site.yaml"]
