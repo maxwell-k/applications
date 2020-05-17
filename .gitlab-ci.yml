@@ -16,8 +16,10 @@ alpine-edge:
     # upgrading here avoids any errors that would show via ldd
     - apk update
     - apk upgrade
+    - echo -e "section_start:$(date +%s):install\r\e[0KInstalling Ansible"
     - apk add ansible py3-pip
     - ansible --version
+    - echo -e "section_start:$(date +%s):site\r\e[0KRunning site.yaml"
   script: ["ansible-playbook -i, site.yaml"]
 
 # Installing Ansible on Ubuntu and Debian is based upon the official
@@ -35,10 +37,12 @@ ubuntu:
     - chmod o-w .
     - apt-get update
     - apt-get upgrade --yes
+    - echo -e "section_start:$(date +%s):install\r\e[0KInstalling Ansible"
     - apt-get install --yes software-properties-common
     - apt-add-repository --yes --update ppa:ansible/ansible
     - apt-get install --yes ansible python-apt aptitude
     - ansible --version
+    - echo -e "section_start:$(date +%s):site\r\e[0KRunning site.yaml"
   script: ["ansible-playbook -i, site.yaml"]
 
 debian:
@@ -47,6 +51,7 @@ debian:
     - chmod o-w .
     - apt-get update
     - apt-get upgrade --yes
+    - echo -e "section_start:$(date +%s):install\r\e[0KInstalling Ansible"
     - apt-get install --yes gnupg
     - apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
     - printf 'deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main\n'
@@ -54,4 +59,5 @@ debian:
     - apt-get update
     - apt-get install --yes ansible python-apt aptitude
     - ansible --version
+    - echo -e "section_start:$(date +%s):site\r\e[0KRunning site.yaml"
   script: ["ansible-playbook -i , site.yaml"]
