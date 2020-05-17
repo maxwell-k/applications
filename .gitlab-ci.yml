@@ -29,8 +29,8 @@ alpine-edge:
 # these are used for example in ./roles/npm/tasks/node-distribution.yaml and
 # ./roles/pip/tasks/main.yaml
 
-ubuntu-bionic:
-  image: ubuntu:bionic
+ubuntu:
+  image: ubuntu # latest is LTS e.g. 20.4 https://hub.docker.com/_/ubuntu/
   before_script:
     - chmod o-w .
     - apt-get update
@@ -41,8 +41,8 @@ ubuntu-bionic:
     - ansible --version
   script: ["ansible-playbook -i, site.yaml"]
 
-debian-stretch:
-  image: debian:buster
+debian:
+  image: debian # latest is stable, e.g. buster https://hub.docker.com/_/debian
   before_script:
     - chmod o-w .
     - apt-get update
