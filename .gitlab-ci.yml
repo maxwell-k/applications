@@ -16,8 +16,10 @@ alpine-edge:
     # upgrading here avoids any errors that would show via ldd
     - apk update
     - apk upgrade
+    - echo -e "section_start:$(date +%s):install\r\e[0KInstalling Ansible"
     - apk add ansible py3-pip
     - ansible --version
+    - echo -e "section_start:$(date +%s):site\r\e[0KRunning site.yaml"
   script: ["ansible-playbook -i, site.yaml"]
 
 # Installing Ansible on Ubuntu and Debian is based upon the official
@@ -29,24 +31,33 @@ alpine-edge:
 # these are used for example in ./roles/npm/tasks/node-distribution.yaml and
 # ./roles/pip/tasks/main.yaml
 
-ubuntu-bionic:
-  image: ubuntu:bionic
+ubuntu:
+  image: ubuntu # latest is LTS e.g. 20.4 https://hub.docker.com/_/ubuntu/
   before_script:
     - chmod o-w .
     - apt-get update
     - apt-get upgrade --yes
-    - apt-get install --yes software-properties-common
-    - apt-add-repository --yes --update ppa:ansible/ansible
-    - apt-get install --yes ansible python-apt aptitude
+    - echo -e "section_start:$(date +%s):install\r\e[0KInstalling Ansible"
+    # Use the Ubuntu packaged ansible until Ansible 2.10 is released
+    # CI completes more quickly with the most recent LTS
+    - apt-get install --yes ansible
+    # The first official release of ansible for Ubuntu 20.04 will be 2.10
+    # Before that release there won't be a fossa package in the PPA, see
+    # https://github.com/ansible/ansible/issues/68645
+    # - apt-get install --yes software-properties-common
+    # - apt-add-repository --yes --update ppa:ansible/ansible
+    # - apt-get install --yes ansible python-apt aptitude
     - ansible --version
+    - echo -e "section_start:$(date +%s):site\r\e[0KRunning site.yaml"
   script: ["ansible-playbook -i, site.yaml"]
 
-debian-stretch:
-  image: debian:buster
+debian:
+  image: debian # latest is stable, e.g. buster https://hub.docker.com/_/debian
   before_script:
     - chmod o-w .
     - apt-get update
     - apt-get upgrade --yes
+    - echo -e "section_start:$(date +%s):install\r\e[0KInstalling Ansible"
     - apt-get install --yes gnupg
     - apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
     - printf 'deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main\n'
@@ -54,4 +65,5 @@ debian-stretch:
     - apt-get update
     - apt-get install --yes ansible python-apt aptitude
     - ansible --version
+    - echo -e "section_start:$(date +%s):site\r\e[0KRunning site.yaml"
   script: ["ansible-playbook -i , site.yaml"]
