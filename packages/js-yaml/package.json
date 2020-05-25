@@ -4,7 +4,7 @@
     "url": "https://gitlab.com/maxwell-k/applications/issues"
   },
   "dependencies": {
-    "js-yaml": "3.13.1"
+    "js-yaml": "3.14.0"
   },
   "description": "Installed by Ansible",
   "homepage": "https://gitlab.com/maxwell-k/applications#readme",
