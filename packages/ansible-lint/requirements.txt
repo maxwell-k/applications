@@ -14,4 +14,4 @@ pycparser==2.20           # via cffi
 pyyaml==5.3.1               # via ansible, ansible-lint
 ruamel.yaml.clib==0.2.0   # via -r requirements.in, ruamel.yaml
 ruamel.yaml==0.16.10      # via ansible-lint
-six==1.14.0               # via ansible-lint, cryptography
+six==1.15.0               # via ansible-lint, cryptography
