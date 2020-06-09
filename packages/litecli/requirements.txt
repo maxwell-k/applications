@@ -14,4 +14,4 @@ six==1.15.0               # via configobj
 sqlparse==0.3.1           # via litecli
 tabulate[widechars]==0.8.7  # via cli-helpers
 terminaltables==3.1.0     # via cli-helpers
-wcwidth==0.1.9            # via prompt-toolkit
+wcwidth==0.2.4            # via prompt-toolkit
