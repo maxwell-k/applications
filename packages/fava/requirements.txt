@@ -47,7 +47,7 @@ six==1.15.0               # via cheroot, google-api-python-client, google-auth, 
 soupsieve==2.0.1          # via beautifulsoup4
 uritemplate==3.0.1        # via google-api-python-client
 urllib3==1.25.9           # via requests
-wcwidth==0.1.9            # via pytest
+wcwidth==0.2.4            # via pytest
 werkzeug==1.0.1          # via fava, flask
 
 # The following packages are considered to be unsafe in a requirements file:
