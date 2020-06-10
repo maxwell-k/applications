@@ -6,7 +6,7 @@
 #
 attrs==19.3.0             # via pytest
 babel==2.8.0              # via fava, flask-babel
-beancount==2.2.3          # via fava
+beancount==2.3.0          # via fava
 beautifulsoup4==4.9.1     # via beancount
 bottle==0.12.18           # via beancount
 cachetools==4.1.0         # via google-auth
