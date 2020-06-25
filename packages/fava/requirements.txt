@@ -32,7 +32,7 @@ more-itertools==8.4.0     # via cheroot, jaraco.functools, pytest
 packaging==20.4           # via pytest
 pluggy==0.13.1            # via pytest
 ply==3.11                 # via beancount, fava
-py==1.8.1                 # via pytest
+py==1.9.0                 # via pytest
 pyasn1-modules==0.2.8     # via google-auth
 pyasn1==0.4.8             # via pyasn1-modules, rsa
 pyparsing==2.4.7          # via packaging
