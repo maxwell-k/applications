@@ -18,8 +18,8 @@ fava==1.15
 flask-babel==1.0.0       # via fava
 flask==1.1.2              # via fava, flask-babel
 google-api-python-client==1.8.3  # via beancount
-google-auth-httplib2==0.0.3  # via google-api-python-client
-google-auth==1.15.0       # via google-api-python-client, google-auth-httplib2
+google-auth-httplib2==0.0.4  # via google-api-python-client
+google-auth==1.18.0       # via google-api-python-client, google-auth-httplib2
 httplib2==0.18.1          # via google-api-python-client, google-auth-httplib2
 idna==2.10                 # via requests
 itsdangerous==1.1.0       # via flask
@@ -40,7 +40,7 @@ pytest==5.4.3             # via beancount
 python-dateutil==2.8.1    # via beancount
 python-magic==0.4.18      # via beancount
 pytz==2020.1              # via babel
-requests==2.23.0          # via beancount
+requests==2.24.0          # via beancount
 rsa==4.0                  # via google-auth
 simplejson==3.17.0        # via fava
 six==1.15.0               # via cheroot, google-api-python-client, google-auth, packaging, python-dateutil
