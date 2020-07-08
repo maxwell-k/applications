@@ -1,4 +1,4 @@
-- name: Install {{ playbook_dir | basename }} application with npm on localhost
+- name: jsonlint
   hosts: localhost
   vars: { npm_versions: [] }
   roles: [npm]
