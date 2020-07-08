@@ -1,0 +1,10 @@
+- name: markdown-toc
+  hosts: localhost
+  roles: [npm]
+  vars: { npm_versions: [] }
+  tasks:
+    - name: Check that markdown-toc runs OK, it doesn't support --version
+      command:
+        cmd: markdown-toc -
+        stdin: ""
+      changed_when: no
