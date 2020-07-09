@@ -6,7 +6,7 @@
 #
 docutils==0.16            # via hovercraft
 hovercraft==2.7           # via -r requirements.in
-lxml==4.5.1               # via hovercraft
+lxml==4.5.2               # via hovercraft
 pathtools==0.1.2          # via watchdog
 pygments==2.6.1           # via hovercraft
 svg.path==4.0.2           # via hovercraft
