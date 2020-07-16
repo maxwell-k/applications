@@ -42,7 +42,7 @@ python-magic==0.4.18      # via beancount
 pytz==2020.1              # via babel
 requests==2.24.0          # via beancount
 rsa==4.6                  # via google-auth
-simplejson==3.17.0        # via fava
+simplejson==3.17.2        # via fava
 six==1.15.0               # via cheroot, google-api-python-client, google-auth, packaging, python-dateutil
 soupsieve==2.0.1          # via beautifulsoup4
 uritemplate==3.0.1        # via google-api-python-client
