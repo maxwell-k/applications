@@ -12,7 +12,7 @@ bottle==0.12.18           # via beancount
 cachetools==4.1.1         # via google-auth
 certifi==2020.6.20       # via requests
 chardet==3.0.4            # via beancount, requests
-cheroot==8.3.0            # via fava
+cheroot==8.4.0            # via fava
 click==7.1.2                # via fava, flask
 fava==1.15
 flask-babel==1.0.0       # via fava
