@@ -12,4 +12,4 @@ flit==2.3.0               # via -r requirements.in
 idna==2.10                 # via requests
 pytoml==0.1.21            # via flit, flit-core
 requests==2.24.0          # via flit
-urllib3==1.25.9           # via requests
+urllib3==1.25.10           # via requests

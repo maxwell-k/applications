@@ -12,7 +12,7 @@ bottle==0.12.18           # via beancount
 cachetools==4.1.1         # via google-auth
 certifi==2020.6.20       # via requests
 chardet==3.0.4            # via beancount, requests
-cheroot==8.3.0            # via fava
+cheroot==8.4.0            # via fava
 click==7.1.2                # via fava, flask
 fava==1.15
 flask-babel==1.0.0       # via fava
@@ -25,7 +25,7 @@ idna==2.10                 # via requests
 itsdangerous==1.1.0       # via flask
 jaraco.functools==3.0.1   # via cheroot
 jinja2==2.11.2
-lxml==4.5.1
+lxml==4.5.2
 markdown2==2.3.9          # via fava
 markupsafe==1.1.1         # via jinja2
 more-itertools==8.4.0     # via cheroot, jaraco.functools, pytest
@@ -42,11 +42,11 @@ python-magic==0.4.18      # via beancount
 pytz==2020.1              # via babel
 requests==2.24.0          # via beancount
 rsa==4.6                  # via google-auth
-simplejson==3.17.0        # via fava
+simplejson==3.17.2        # via fava
 six==1.15.0               # via cheroot, google-api-python-client, google-auth, packaging, python-dateutil
 soupsieve==2.0.1          # via beautifulsoup4
 uritemplate==3.0.1        # via google-api-python-client
-urllib3==1.25.9           # via requests
+urllib3==1.25.10           # via requests
 wcwidth==0.2.5            # via pytest
 werkzeug==1.0.1          # via fava, flask
 
