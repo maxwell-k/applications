@@ -2,13 +2,9 @@
   hosts: localhost
   pre_tasks:
     - name:
-        On Alpine Linux, install beancount from the testing repository because
+        On Alpine Linux, install beancount from the upstream repository because
         it includes a parser written in C, on other distributions a wheel is
         available
-      apk:
-        name: beancount
-        repository:
-          - http://dl-cdn.alpinelinux.org/alpine/edge/main
-          - http://dl-cdn.alpinelinux.org/alpine/edge/community
+      apk: { name: beancount }
       when: ansible_distribution == 'Alpine'
   roles: [pip]

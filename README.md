@@ -69,8 +69,8 @@ and `py3-wheel` installed.
 not have `become: yes` set because when:
 
 1. running on CI, `ansible-playbook` will be run as root
-2. running locally, with tags like `@testing` in `/etc/apk/repositories` the
-   pre-task will fail unless the packages are already installed.
+2. running locally the pre-task will fail unless the packages are already
+   installed.
 
 # Checks
 
@@ -106,11 +106,11 @@ In the two roles, `npm` and `pip` the following variables are used:
 
 # Multiple upgrades from renovate
 
-The author has a preference for [semi-linear
-merges](https://github.com/maxwell-k/semi-linear). If there are a large number
-of merge requests this can be time consuming for a CI system. One solution is to
-cherry pick multiple renovate branches into one. A strategy for doing this is
-below:
+The author has a preference for
+[semi-linear merges](https://github.com/maxwell-k/semi-linear). If there are a
+large number of merge requests this can be time consuming for a CI system. One
+solution is to cherry pick multiple renovate branches into one. A strategy for
+doing this is below:
 
 ```sh
 git ls-remote origin 'refs/heads/renovate/*' | sed 's,.*heads/,,'
