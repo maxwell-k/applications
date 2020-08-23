@@ -4,7 +4,7 @@
 #
 #    pip-compile requirements.in
 #
-attrs==19.3.0             # via flake8-bugbear
+attrs==20.1.0             # via flake8-bugbear
 entrypoints==0.3          # via flake8
 flake8-bugbear==20.1.4
 flake8==3.8.3
