@@ -28,7 +28,7 @@ jinja2==2.11.2
 lxml==4.5.2
 markdown2==2.3.9          # via fava
 markupsafe==1.1.1         # via jinja2
-more-itertools==8.4.0     # via cheroot, jaraco.functools, pytest
+more-itertools==8.5.0     # via cheroot, jaraco.functools, pytest
 packaging==20.4           # via pytest
 pluggy==0.13.1            # via pytest
 ply==3.11                 # via beancount, fava
