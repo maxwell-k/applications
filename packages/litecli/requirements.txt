@@ -9,7 +9,7 @@ click==7.1.2              # via litecli
 configobj==5.0.6          # via cli-helpers, litecli
 litecli==1.4.1            # via -r requirements.in
 prompt-toolkit==3.0.6     # via litecli
-pygments==2.6.1           # via cli-helpers, litecli
+pygments==2.7.1           # via cli-helpers, litecli
 six==1.15.0               # via configobj
 sqlparse==0.3.1           # via litecli
 tabulate[widechars]==0.8.7  # via cli-helpers
