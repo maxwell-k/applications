@@ -42,7 +42,7 @@ ubuntu:
     - apt-get install --yes ansible
     # The first official release of ansible for Ubuntu 20.04 will be 2.10
     # Before that release there won't be a fossa package in the PPA, see
-    # https://github.com/ansible/ansible/issues/68645
+    # https://github.com/ansible/ansible/issues/69203
     # - apt-get install --yes software-properties-common
     # - apt-add-repository --yes --update ppa:ansible/ansible
     # - apt-get install --yes ansible python-apt aptitude
