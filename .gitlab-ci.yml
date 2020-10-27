@@ -14,7 +14,6 @@ alpine-edge:
     - chmod o-w .
     # on edge the container image and the repo mirrors may not be in sync
     # upgrading here avoids any errors that would show via ldd
-    - apk update
     - apk upgrade
     - echo -e "section_start:$(date +%s):install\r\e[0KInstalling Ansible"
     - apk add ansible py3-pip
