@@ -49,5 +49,6 @@ git-filter-repo: { extends: .alpine }
 git-revise: { extends: .alpine }
 isort: { extends: .alpine }
 instaloader: { extends: .alpine }
+litecli: { extends: .alpine }
 pip-tools: { extends: .alpine }
 uncommitted: { extends: .alpine }
