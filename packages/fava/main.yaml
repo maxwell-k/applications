@@ -7,7 +7,7 @@
         available
       apk:
         name:
-          - beancount~2.3.2 # ./requirements.in
-          - py3-jinja2~2.11.2 # ./requirements.in
+          - "beancount{{ apk_version | default('~2.3.2') }}" # ./requirements.in
+          - "py3-jinja2{{ apk_version | default('~2.11.2')  }}" # "
       when: ansible_distribution == 'Alpine'
   roles: [pip]
