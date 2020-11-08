@@ -44,6 +44,7 @@ alpine-edge-ansible:
     packages/$CI_JOB_NAME/main.yaml
 
 black: { extends: .alpine }
+embedme: { extends: .alpine }
 fava: { extends: .alpine }
 flake8: { extends: .alpine }
 git-filter-repo: { extends: .alpine }
