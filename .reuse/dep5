@@ -3,8 +3,8 @@ Upstream-Name: applications
 Upstream-Contact: Keith Maxwell <keith.maxwell@gmail.com>
 Source: https://gitlab.com/maxwell-k/applications
 
-Files: site.yaml
-Copyright: 2019 Keith Maxwell
+Files: site.yaml.py
+Copyright: 2020 Keith Maxwell
 License: MPL-2.0
 Comment: Machine generated source code - index to packages
 
@@ -15,7 +15,7 @@ Comment: Indiviual source code files
   Generally shorter than the 9 lines of boilerplate, so do not include it
   directly.
 
-Files: ansible.cfg renovate.json 
+Files: ansible.cfg renovate.json
 Copyright: 2019 Keith Maxwell
 License: CC0-1.0
 Comment: Configuration files not subject to MPL-2.0
@@ -29,3 +29,8 @@ Files: packages/*/package-lock.json packages/*/requirements.txt
 Copyright: 2019 Keith Maxwell
 License: CC0-1.0
 Comment: Lock files not subject to MPL-2.0
+
+Files: .gitignore
+Copyright: 2020 Keith Maxwell
+License: CC0-1.0
+Comment: Ignore file not subject to MPL-2.0
