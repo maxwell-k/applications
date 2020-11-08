@@ -1,4 +1,4 @@
-# © 2019 Keith Maxwell
+# © 2020 Keith Maxwell
 #
 # This Source Code Form is subject to the terms of the Mozilla Public License,
 # v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain
@@ -6,63 +6,25 @@
 #
 # SPDX-License-Identifier: MPL-2.0
 # SPDX-Copyright: 2019 Keith Maxwell
-#
-alpine-edge:
-  image: alpine:edge
+alpine-edge-ansible:
+  stage: test
+  image: quay.io/buildah/stable
+  variables:
+    IMAGE_TAG: $CI_REGISTRY_IMAGE:alpine-$CI_COMMIT_REF_SLUG
   before_script:
-    - ./.githooks/pre-commit
-    - chmod o-w .
-    # on edge the container image and the repo mirrors may not be in sync
-    # upgrading here avoids any errors that would show via ldd
-    - apk upgrade
-    - echo -e "section_start:$(date +%s):install\r\e[0KInstalling Ansible"
-    - apk add ansible py3-pip
-    - ansible --version
-    - echo -e "section_start:$(date +%s):site\r\e[0KRunning site.yaml"
-  script: ["ansible-playbook -i, site.yaml"]
-
-# Installing Ansible on Ubuntu and Debian is based upon the official
-# instructions at https://docs.ansible.com/ansible/latest/installation_guide/
-# To avoid a warning about an unstable command line interface, apt-get is used
-# in place of apt.
-
-# python-apt and aptitude are required for Ansible's package and apt modules
-# these are used for example in ./roles/npm/tasks/node-distribution.yaml and
-# ./roles/pip/tasks/main.yaml
-
-ubuntu:
-  image: ubuntu # latest is LTS e.g. 20.4 https://hub.docker.com/_/ubuntu/
-  before_script:
-    - chmod o-w .
-    - apt-get update
-    - apt-get upgrade --yes
-    - echo -e "section_start:$(date +%s):install\r\e[0KInstalling Ansible"
-    # Use the Ubuntu packaged ansible until Ansible 2.10 is released
-    # CI completes more quickly with the most recent LTS
-    - apt-get install --yes ansible
-    # The first official release of ansible for Ubuntu 20.04 will be 2.10
-    # Before that release there won't be a fossa package in the PPA, see
-    # https://github.com/ansible/ansible/issues/69203
-    # - apt-get install --yes software-properties-common
-    # - apt-add-repository --yes --update ppa:ansible/ansible
-    # - apt-get install --yes ansible python-apt aptitude
-    - ansible --version
-    - echo -e "section_start:$(date +%s):site\r\e[0KRunning site.yaml"
-  script: ["ansible-playbook -i, site.yaml"]
-
-debian:
-  image: debian # latest is stable, e.g. buster https://hub.docker.com/_/debian
-  before_script:
-    - chmod o-w .
-    - apt-get update
-    - apt-get upgrade --yes
-    - echo -e "section_start:$(date +%s):install\r\e[0KInstalling Ansible"
-    - apt-get install --yes gnupg
-    - apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
-    - printf 'deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main\n'
-      > /etc/apt/sources.list.d/ansible.list
-    - apt-get update
-    - apt-get install --yes ansible python-apt aptitude
-    - ansible --version
-    - echo -e "section_start:$(date +%s):site\r\e[0KRunning site.yaml"
-  script: ["ansible-playbook -i , site.yaml"]
+    - echo -e "section_start:$(date +%s):site\r\e[0KSet up buildah"
+    - buildah --version
+    - >2-
+      buildah login
+      --username gitlab-ci-token
+      --password $CI_BUILD_TOKEN
+      $CI_REGISTRY
+  script: >2-
+    echo -e "section_start:$(date +%s):site\r\e[0KBuild container"
+    && container=$(buildah from alpine:edge)
+    && buildah run $container -- apk upgrade
+    && buildah run $container -- apk add ansible py3-virtualenv nodejs npm
+    && buildah run $container -- ansible --version
+    && buildah run $container -- virtualenv --version
+    && buildah commit $container $IMAGE_TAG
+  after_script: [buildah push $IMAGE_TAG]

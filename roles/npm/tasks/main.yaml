@@ -7,7 +7,6 @@
 # SPDX-License-Identifier: MPL-2.0
 # SPDX-Copyright: 2019 Keith Maxwell
 #
-- import_tasks: node-distribution.yaml
 - name: Create a directory
   become: yes
   file:
