@@ -55,6 +55,7 @@ instaloader: { extends: .alpine }
 js-yaml: { extends: .alpine }
 lint-staged: { extends: .alpine }
 litecli: { extends: .alpine }
+markdown-toc: { extends: .alpine }
 prettier: { extends: .alpine }
 pip-tools: { extends: .alpine }
 uncommitted: { extends: .alpine }
