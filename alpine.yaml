@@ -1,0 +1,56 @@
+{
+  "black": {
+    "extends": ".alpine"
+  },
+  "embedme": {
+    "extends": ".alpine"
+  },
+  "fava": {
+    "extends": ".alpine"
+  },
+  "flake8": {
+    "extends": ".alpine"
+  },
+  "git-filter-repo": {
+    "extends": ".alpine"
+  },
+  "git-revise": {
+    "extends": ".alpine"
+  },
+  "hovercraft": {
+    "extends": ".alpine"
+  },
+  "instaloader": {
+    "extends": ".alpine"
+  },
+  "isort": {
+    "extends": ".alpine"
+  },
+  "js-yaml": {
+    "extends": ".alpine"
+  },
+  "jsonlint": {
+    "extends": ".alpine"
+  },
+  "lint-staged": {
+    "extends": ".alpine"
+  },
+  "litecli": {
+    "extends": ".alpine"
+  },
+  "markdown-toc": {
+    "extends": ".alpine"
+  },
+  "pip-tools": {
+    "extends": ".alpine"
+  },
+  "prettier": {
+    "extends": ".alpine"
+  },
+  "reuse": {
+    "extends": ".alpine"
+  },
+  "uncommitted": {
+    "extends": ".alpine"
+  }
+}
