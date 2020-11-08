@@ -44,6 +44,9 @@
   "pip-tools": {
     "extends": ".alpine"
   },
+  "pre-commit": {
+    "extends": ".alpine"
+  },
   "prettier": {
     "extends": ".alpine"
   },
