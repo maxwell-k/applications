@@ -44,5 +44,6 @@ alpine-edge-ansible:
     packages/$CI_JOB_NAME/main.yaml
 
 black: { extends: .alpine }
+flake8: { extends: .alpine }
 git-revise: { extends: .alpine }
 uncommitted: { extends: .alpine }
