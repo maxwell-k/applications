@@ -59,4 +59,5 @@ litecli: { extends: .alpine }
 markdown-toc: { extends: .alpine }
 prettier: { extends: .alpine }
 pip-tools: { extends: .alpine }
+reuse: { extends: .alpine }
 uncommitted: { extends: .alpine }
