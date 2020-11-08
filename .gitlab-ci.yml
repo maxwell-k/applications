@@ -52,6 +52,7 @@ hovercraft: { extends: .alpine }
 isort: { extends: .alpine }
 instaloader: { extends: .alpine }
 js-yaml: { extends: .alpine }
+lint-staged: { extends: .alpine }
 litecli: { extends: .alpine }
 prettier: { extends: .alpine }
 pip-tools: { extends: .alpine }
