@@ -11,36 +11,3 @@
   become: yes
   when: ansible_distribution == 'Alpine'
   apk: { name: [nodejs, nodejs-doc, npm] }
-- name: Install Node on a Debian based linux
-  when: ansible_distribution in ('Ubuntu', 'Debian')
-  block:
-    - name: Install dirmngr for apt_key
-      become: yes
-      package: { name: dirmngr }
-    - name: Make sure apt can install over https
-      become: yes
-      apt: { name: apt-transport-https }
-    - name: Add the nodesource key
-      become: yes
-      apt_key:
-        url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
-        id: "68576280"
-    - name: Set node_os_version
-      set_fact:
-        node_os_version: |-
-          {{
-            (ansible_distribution_release != 'NA') | ternary(
-              ansible_distribution_release,
-              ansible_distribution_version.split('/')[0],
-              )
-          }}
-    - name: Install deb.nodesource.com packagesources
-      become: yes
-      apt_repository: { repo: "{{ item }}" }
-      loop:
-        - deb https://deb.nodesource.com/node_10.x {{ node_os_version }} main
-        - deb-src https://deb.nodesource.com/node_10.x {{ node_os_version }}
-          main
-    - name: Install Node
-      become: yes
-      apt: { name: nodejs, update_cache: yes }
