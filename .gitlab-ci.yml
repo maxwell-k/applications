@@ -48,6 +48,7 @@ fava: { extends: .alpine }
 flake8: { extends: .alpine }
 git-filter-repo: { extends: .alpine }
 git-revise: { extends: .alpine }
+hovercraft: { extends: .alpine }
 isort: { extends: .alpine }
 instaloader: { extends: .alpine }
 litecli: { extends: .alpine }
