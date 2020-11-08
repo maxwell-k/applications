@@ -1,4 +1,7 @@
 fava
 # System packages that should match Alpine Linux edge
-lxml==4.5.0  # https://pkgs.alpinelinux.org/package/edge/main/x86_64/py3-lxml
-jinja2==2.11.0 # https://pkgs.alpinelinux.org/package/edge/main/x86_64/py3-jinja2
+## Direct
+jinja2==2.11.2 # https://pkgs.alpinelinux.org/package/edge/main/x86_64/py3-jinja2
+beancount==2.3.2 # https://pkgs.alpinelinux.org/package/edge/community/x86_64/beancount
+## Indirect
+lxml==4.6.1  # https://pkgs.alpinelinux.org/package/edge/community/x86_64/py3-lxml
