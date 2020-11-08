@@ -1,5 +1,5 @@
-- name: Install {{ playbook_dir | basename }} application with pip on localhost
-  hosts: localhost
+- name: Install {{ playbook_dir | basename }} application with pip
+  hosts: all
   pre_tasks:
     - name: Install git so that --version works
       become: yes

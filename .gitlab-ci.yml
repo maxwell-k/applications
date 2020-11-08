@@ -45,6 +45,7 @@ alpine-edge-ansible:
 
 black: { extends: .alpine }
 flake8: { extends: .alpine }
+git-filter-repo: { extends: .alpine }
 git-revise: { extends: .alpine }
 pip-tools: { extends: .alpine }
 uncommitted: { extends: .alpine }
