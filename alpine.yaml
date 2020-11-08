@@ -9,6 +9,7 @@
   "hovercraft": { "extends": ".alpine" },
   "instaloader": { "extends": ".alpine" },
   "isort": { "extends": ".alpine" },
+  "johnnydep": { "extends": ".alpine" },
   "js-yaml": { "extends": ".alpine" },
   "jsonlint": { "extends": ".alpine" },
   "lint-staged": { "extends": ".alpine" },

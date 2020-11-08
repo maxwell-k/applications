@@ -1,0 +1,3 @@
+- name: Install {{ playbook_dir | basename }} application with pip
+  hosts: all
+  roles: [pip]
