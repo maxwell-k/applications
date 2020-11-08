@@ -1,10 +1,13 @@
-- name: Install {{ playbook_dir | basename }} application with pip on localhost
-  hosts: localhost
+- name: Install {{ playbook_dir | basename }} application with pip
+  hosts: all
   pre_tasks:
     - name:
         On Alpine Linux, install beancount from the upstream repository because
         it includes a parser written in C, on other distributions a wheel is
         available
-      apk: { name: beancount }
+      apk:
+        name:
+          - "beancount{{ apk_version | default('~2.3.2') }}" # ./requirements.in
+          - "py3-jinja2{{ apk_version | default('~2.11.2')  }}" # "
       when: ansible_distribution == 'Alpine'
   roles: [pip]

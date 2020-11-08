@@ -5,7 +5,7 @@
 
 [![reuse compliant](https://reuse.software/badge/reuse-compliant.svg)](https://reuse.software/)
 
-This directory helps the author understand changes to software that he uses.
+This repository helps the author understand changes to software that he uses.
 
 It uses Ansible to install JavaScript and Python packages. The versions of these
 packages and their dependencies are pinned and updated with [renovate]. Where
@@ -16,8 +16,8 @@ Each package uses a separate `main.yaml` to account for variations between
 packages for example multiple binaries, the absence of support for `--version`
 or a non-zero return code.
 
-Packages are installed with `npm ci` or `pip`. Installation is tested on in
-GitLab CI on recent versions of Alpine Linux, Debian and Ubuntu.
+Packages are installed with `npm ci` or `pip`. Installation is tested in
+GitLab CI on Alpine Linux edge.
 
 On Alpine Linux the repository does not compile C code. Instead the playbooks
 pull in system packages.
@@ -26,9 +26,13 @@ pull in system packages.
 
 ## Use a package
 
-```sh
-ansible-playbook -i, packages/jsonlint/main.yaml
-```
+    ansible-playbook -c local -i localhost, \
+      -e apk_version= packages/fava/main.yaml
+
+## Use all packages
+
+    python3 site.yaml.py | tee site.yaml \
+    && ansible-playbook -c local -i localhost, -e apk_version= site.yaml
 
 ## Setup a new Node.js package
 
@@ -37,33 +41,38 @@ will fail because it doesn't install the binaries without a `package-lock.json`
 so it cannot run the binaries. Instead create a `package-lock.json` with
 `npm install`.
 
-```sh
-ansible-playbook -i, create-npm.yaml -e create_package=lint-staged
-ansible-playbook -i, packages/lint-staged/main.yaml
-cd /opt/lint-staged
-npm install
-```
+    ansible-playbook -i, create-npm.yaml -e create_package=lint-staged \
+    && ansible-playbook -c local -i localhost, packages/lint-staged/main.yaml \
+    && cd /opt/lint-staged \
+    && npm install
 
 Move the resulting `package-lock.json` into this repository and use the package
-again. Add a line to `site.yaml`.
+again.
 
 ## Setup a new Python package
 
 The main task is to create a suitable `requirements.txt`. Using `autopep8` as an
 example:
 
-```
-mkdir packages/autopep8 &&
-cd packages/autopep8 &&
-cp ../hovercraft/main.yaml . &&
-echo autopep8 > requirements.in &&
-pip-compile &&
-cd ../.. &&
-ansible-playbook -i, packages/autopep8/main.yaml
-```
+    package=pre-commit \
+    && mkdir packages/$package \
+    && cd packages/$package \
+    && cp ../isort/main.yaml . \
+    && echo $package > requirements.in \
+    && pip-compile \
+    && cd ../.. \
+    && ansible-playbook -c local -i localhost, packages/$package/main.yaml
 
-For `pip-compile` on Alpine Linux to succeed it may help to have `alpine-sdk`
-and `py3-wheel` installed.
+For `pip-compile` on Alpine Linux, depending on the package, compilers may be
+required:
+
+    podman run -ti --rm --volume $PWD:/srv:z --workdir /srv alpine:edge
+
+    apk upgrade \
+    && apk add alpine-sdk py3-pip libxslt-dev \
+    && python3 -m pip install pip-tools
+
+    pip-compile
 
 `pre_tasks` that install Alpine Linux packages with the `apk` Ansible module do
 not have `become: yes` set because when:
@@ -71,14 +80,6 @@ not have `become: yes` set because when:
 1. running on CI, `ansible-playbook` will be run as root
 2. running locally the pre-task will fail unless the packages are already
    installed.
-
-# Checks
-
-A pre-commit hook checks that `site.yaml` is up to date:
-
-```
-git config core.hooksPath .githooks
-```
 
 # Choice of renovate
 
@@ -104,23 +105,29 @@ In the two roles, `npm` and `pip` the following variables are used:
 - `???_versions` is a list of the binaries that the role will run with
   `--version`, defaults to `npm_binaries`
 
-# Multiple upgrades from renovate
+# Changes
 
-The author has a preference for
-[semi-linear merges](https://github.com/maxwell-k/semi-linear). If there are a
-large number of merge requests this can be time consuming for a CI system. One
-solution is to cherry pick multiple renovate branches into one. A strategy for
-doing this is below:
+## Forthcoming
 
-```sh
-git ls-remote origin 'refs/heads/renovate/*' | sed 's,.*heads/,,'
-git fetch origin renovate/uncommitted-2.x
-git cherry-pick FETCH_HEAD
-```
+- Only builds a package if its files change, needs
+  https://gitlab.com/gitlab-org/gitlab/-/issues/34272 to be merged
+- Support for Fedora
+
+## Version 2
+
+- Installs happen in parallel in GitLab CI; run time went from approximately 7
+  minutes to approximately 1 minute
+- Pin package versions on Alpine Linux
+- Support only for Alpine Linux
+
+## Version 1
+
+- Initial prototype
+- Support for Alpine, Debian and Ubuntu
 
 # Licence
 
-© 2018, 2019 Keith Maxwell
+© 2018, 2019, 2020 Keith Maxwell
 
 All code is subject to the terms of the Mozilla Public License, v. 2.0. You can
 obtain a copy of the MPL at <http://mozilla.org/MPL/2.0/>.

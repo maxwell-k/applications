@@ -1,0 +1,5 @@
+ansible-lint
+ansible==2.10.3
+ruamel.yaml==0.16.12
+cryptography==2.9.2
+jinja2==2.11.2 # https://pkgs.alpinelinux.org/package/edge/main/x86_64/py3-jinja2

@@ -3,9 +3,11 @@
   pre_tasks:
     - name: Install dependencies with compiled extensions on Alpine Linux
       apk:
-        name:
-          - "py3-typed-ast{{ apk_version | default('~1.4.1') }}" # ./requirements.in
-          - "py3-regex{{ apk_version | default('~2020.10.28') }}" # "
+        name: # https://github.com/ansible/ansible-lint/blob/master/setup.cfg#L72
+          - "ansible{{ apk_version | default('~2.10.3') }}" # ./requirements.in
+          - "py3-ruamel.yaml{{ apk_version | default('~0.16.12') }}" # "
+          - "py3-cryptography{{ apk_version | default('~2.9.2') }}" # "
+          - "py3-jinja2{{ apk_version | default('~2.11.2') }}" # "
         repository:
           - http://dl-cdn.alpinelinux.org/alpine/edge/main
           - http://dl-cdn.alpinelinux.org/alpine/edge/community

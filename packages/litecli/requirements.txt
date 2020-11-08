@@ -8,10 +8,10 @@ cli-helpers[styles]==2.1.0  # via litecli
 click==7.1.2              # via litecli
 configobj==5.0.6          # via cli-helpers, litecli
 litecli==1.4.1            # via -r requirements.in
-prompt-toolkit==3.0.7     # via litecli
-pygments==2.7.1           # via cli-helpers, litecli
+prompt-toolkit==3.0.8     # via litecli
+pygments==2.7.2           # via cli-helpers, litecli
 six==1.15.0               # via configobj
-sqlparse==0.3.1           # via litecli
+sqlparse==0.4.1           # via litecli
 tabulate[widechars]==0.8.7  # via cli-helpers
 terminaltables==3.1.0     # via cli-helpers
 wcwidth==0.2.5            # via prompt-toolkit

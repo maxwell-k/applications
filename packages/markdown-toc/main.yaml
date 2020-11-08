@@ -1,5 +1,5 @@
 - name: markdown-toc
-  hosts: localhost
+  hosts: all
   roles: [npm]
   vars: { npm_versions: [] }
   tasks:

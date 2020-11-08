@@ -1,5 +1,5 @@
 - name: jsonlint
-  hosts: localhost
+  hosts: all
   vars: { npm_versions: [] }
   roles: [npm]
   tasks:
