@@ -51,6 +51,7 @@ git-revise: { extends: .alpine }
 hovercraft: { extends: .alpine }
 isort: { extends: .alpine }
 instaloader: { extends: .alpine }
+js-yaml: { extends: .alpine }
 litecli: { extends: .alpine }
 prettier: { extends: .alpine }
 pip-tools: { extends: .alpine }
