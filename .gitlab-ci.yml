@@ -28,6 +28,9 @@ alpine-edge-ansible:
     && buildah run $container -- virtualenv --version
     && buildah commit $container $IMAGE_TAG
   after_script: [buildah push $IMAGE_TAG]
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
+    - if: '$CI_PIPELINE_SOURCE == "web"'
 
 black:
   stage: test
