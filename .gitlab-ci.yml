@@ -7,10 +7,10 @@
 # SPDX-License-Identifier: MPL-2.0
 # SPDX-Copyright: 2019 Keith Maxwell
 alpine-edge-ansible:
-  stage: test
+  stage: build
   image: quay.io/buildah/stable
   variables:
-    IMAGE_TAG: $CI_REGISTRY_IMAGE:alpine-$CI_COMMIT_REF_SLUG
+    IMAGE_TAG: $CI_REGISTRY_IMAGE:alpine
   before_script:
     - echo -e "section_start:$(date +%s):site\r\e[0KSet up buildah"
     - buildah --version
@@ -28,3 +28,9 @@ alpine-edge-ansible:
     && buildah run $container -- virtualenv --version
     && buildah commit $container $IMAGE_TAG
   after_script: [buildah push $IMAGE_TAG]
+
+black:
+  stage: test
+  image: $CI_REGISTRY_IMAGE:alpine
+  before_script: [chmod o-w .]
+  script: ansible-playbook -i, -v packages/black/main.yaml

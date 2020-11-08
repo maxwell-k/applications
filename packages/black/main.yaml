@@ -1,12 +1,13 @@
-- name: Install {{ playbook_dir | basename }} application with pip on localhost
-  hosts: localhost
+- name: Install {{ playbook_dir | basename }} application with pip
+  hosts: all
   pre_tasks:
     - name: Install dependencies with compiled extensions on Alpine Linux
       apk:
-        name: [py3-typed-ast, py3-regex]
+        name:
+          - py3-typed-ast~1.4.1 # pinned in ./requirements.in
+          - py3-regex~2020.10.28 # "
         repository:
           - http://dl-cdn.alpinelinux.org/alpine/edge/main
           - http://dl-cdn.alpinelinux.org/alpine/edge/community
-          - http://dl-cdn.alpinelinux.org/alpine/edge/testing
       when: ansible_distribution == 'Alpine'
   roles: [pip]
