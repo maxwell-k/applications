@@ -40,7 +40,7 @@ py==1.9.0                 # via pytest
 pyasn1-modules==0.2.8     # via google-auth
 pyasn1==0.4.8             # via pyasn1-modules, rsa
 pyparsing==2.4.7          # via packaging
-pytest==6.1.0             # via beancount
+pytest==6.1.2             # via beancount
 python-dateutil==2.8.1    # via beancount
 python-magic==0.4.18      # via beancount
 pytz==2020.4              # via babel, flask-babel, google-api-core
