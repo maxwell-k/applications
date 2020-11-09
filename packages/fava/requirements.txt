@@ -51,7 +51,7 @@ six==1.15.0               # via cheroot, google-api-core, google-api-python-clie
 soupsieve==2.0.1          # via beautifulsoup4
 toml==0.10.2              # via pytest
 uritemplate==3.0.1        # via google-api-python-client
-urllib3==1.25.10          # via requests
+urllib3==1.25.11          # via requests
 werkzeug==1.0.1           # via fava, flask
 
 # The following packages are considered to be unsafe in a requirements file:
