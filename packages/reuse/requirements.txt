@@ -6,7 +6,7 @@
 #
 binaryornot==0.4.4        # via reuse
 boolean.py==3.8           # via license-expression, reuse
-certifi==2020.6.20       # via requests
+certifi==2020.11.8       # via requests
 chardet==3.0.4            # via binaryornot, python-debian, requests
 idna==2.10                 # via requests
 jinja2==2.11.2
