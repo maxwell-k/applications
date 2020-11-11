@@ -16,4 +16,4 @@ python-debian==0.1.38     # via reuse
 requests==2.24.0          # via reuse
 reuse==0.11.1
 six==1.15.0               # via python-debian
-urllib3==1.25.11           # via requests
+urllib3==1.26.0           # via requests
