@@ -1,5 +1,5 @@
 ansible-lint
 ansible==2.10.3
-ruamel.yaml==0.16.12
+ruamel.yaml.clib==0.2.2 # https://pkgs.alpinelinux.org/package/edge/community/x86_64/py3-ruamel.yaml.clib
 cryptography==2.9.2
 jinja2==2.11.2 # https://pkgs.alpinelinux.org/package/edge/main/x86_64/py3-jinja2
