@@ -5,7 +5,7 @@
       apk:
         name: # https://github.com/ansible/ansible-lint/blob/master/setup.cfg#L72
           - "ansible{{ apk_version | default('~2.10.3') }}" # ./requirements.in
-          - "py3-ruamel.yaml{{ apk_version | default('~0.16.12') }}" # "
+          - "py3-ruamel.yaml.clib{{ apk_version | default('~0.2.2') }}" # "
           - "py3-cryptography{{ apk_version | default('~2.9.2') }}" # "
           - "py3-jinja2{{ apk_version | default('~2.11.2') }}" # "
         repository:

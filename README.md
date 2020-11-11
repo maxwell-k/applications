@@ -16,8 +16,8 @@ Each package uses a separate `main.yaml` to account for variations between
 packages for example multiple binaries, the absence of support for `--version`
 or a non-zero return code.
 
-Packages are installed with `npm ci` or `pip`. Installation is tested in
-GitLab CI on Alpine Linux edge.
+Packages are installed with `npm ci` or `pip`. Installation is tested in GitLab
+CI on Alpine Linux edge.
 
 On Alpine Linux the repository does not compile C code. Instead the playbooks
 pull in system packages.
@@ -69,7 +69,7 @@ required:
     podman run -ti --rm --volume $PWD:/srv:z --workdir /srv alpine:edge
 
     apk upgrade \
-    && apk add alpine-sdk py3-pip libxslt-dev \
+    && apk add alpine-sdk py3-pip python3-dev libffi-dev libxslt-dev \
     && python3 -m pip install pip-tools
 
     pip-compile
