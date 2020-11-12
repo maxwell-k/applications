@@ -29,7 +29,7 @@ itsdangerous==1.1.0       # via flask
 jaraco.functools==3.0.1   # via cheroot
 jinja2==2.11.2            # via -r requirements.in, fava, flask, flask-babel
 lxml==4.6.1               # via -r requirements.in, beancount
-markdown2==2.3.9          # via fava
+markdown2==2.3.10          # via fava
 markupsafe==1.1.1         # via jinja2
 more-itertools==8.6.0     # via cheroot, jaraco.functools
 packaging==20.4           # via pytest
