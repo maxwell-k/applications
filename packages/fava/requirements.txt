@@ -14,7 +14,7 @@ certifi==2020.11.8        # via requests
 chardet==3.0.4            # via beancount, requests
 cheroot==8.4.5            # via fava
 click==7.1.2              # via fava, flask
-fava==1.16                # via -r requirements.in
+fava==1.17                # via -r requirements.in
 flask-babel==2.0.0        # via fava
 flask==1.1.2              # via fava, flask-babel
 google-api-core==1.23.0   # via google-api-python-client
