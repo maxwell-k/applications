@@ -5,7 +5,7 @@
 #    pip-compile
 #
 attrs==20.3.0             # via pytest
-babel==2.8.1              # via fava, flask-babel
+babel==2.9.0              # via fava, flask-babel
 beancount==2.3.2          # via -r requirements.in, fava
 beautifulsoup4==4.9.3     # via beancount
 bottle==0.12.19           # via beancount
