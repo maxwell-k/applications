@@ -44,7 +44,7 @@ pytest==6.1.2             # via beancount
 python-dateutil==2.8.1    # via beancount
 python-magic==0.4.18      # via beancount
 pytz==2020.4              # via babel, flask-babel, google-api-core
-requests==2.24.0          # via beancount, google-api-core
+requests==2.25.0          # via beancount, google-api-core
 rsa==4.6                  # via google-auth
 simplejson==3.17.2        # via fava
 six==1.15.0               # via cheroot, google-api-core, google-api-python-client, google-auth, google-auth-httplib2, packaging, protobuf, python-dateutil
