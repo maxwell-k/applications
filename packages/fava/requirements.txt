@@ -35,7 +35,7 @@ more-itertools==8.6.0     # via cheroot, jaraco.functools
 packaging==20.4           # via pytest
 pluggy==0.13.1            # via pytest
 ply==3.11                 # via beancount, fava
-protobuf==3.13.0          # via google-api-core, googleapis-common-protos
+protobuf==3.14.0          # via google-api-core, googleapis-common-protos
 py==1.9.0                 # via pytest
 pyasn1-modules==0.2.8     # via google-auth
 pyasn1==0.4.8             # via pyasn1-modules, rsa
