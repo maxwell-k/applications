@@ -4,7 +4,7 @@
     - name: Install dependencies with compiled extensions on Alpine Linux
       apk:
         name:
-          - "py3-virtualenv{{ apk_version | default('~20.1.0') }}" # ./requirements.in
+          - "py3-virtualenv{{ apk_version | default('~20.2.2') }}" # ./requirements.in
         repository:
           - http://dl-cdn.alpinelinux.org/alpine/edge/main
       when: ansible_distribution == 'Alpine'
