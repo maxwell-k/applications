@@ -28,8 +28,8 @@ iniconfig==1.1.1          # via pytest
 itsdangerous==1.1.0       # via flask
 jaraco.functools==3.0.1   # via cheroot
 jinja2==2.11.2            # via -r requirements.in, fava, flask, flask-babel
-lxml==4.6.1               # via -r requirements.in, beancount
-markdown2==2.3.10          # via fava
+lxml==4.6.2               # via -r requirements.in, beancount
+markdown2==2.3.10         # via fava
 markupsafe==1.1.1         # via jinja2
 more-itertools==8.6.0     # via cheroot, jaraco.functools
 packaging==20.4           # via pytest
@@ -51,7 +51,7 @@ six==1.15.0               # via cheroot, google-api-core, google-api-python-clie
 soupsieve==2.0.1          # via beautifulsoup4
 toml==0.10.2              # via pytest
 uritemplate==3.0.1        # via google-api-python-client
-urllib3==1.26.2          # via requests
+urllib3==1.26.2           # via requests
 werkzeug==1.0.1           # via fava, flask
 
 # The following packages are considered to be unsafe in a requirements file:
