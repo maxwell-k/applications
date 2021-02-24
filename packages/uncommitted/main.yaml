@@ -1,6 +1,13 @@
 - name: Install {{ playbook_dir | basename }} application with pip
   hosts: all
   vars: { pip_versions: [] }
+  pre_tasks:
+    - name: Install dependencies that don't belong in requirements.txt
+      apk:
+        name:
+          - py3-setuptools
+        repository:
+          - http://dl-cdn.alpinelinux.org/alpine/edge/main
   roles: [pip]
   tasks:
     - name: Check that uncommitted runs OK, it doesn't support --version
