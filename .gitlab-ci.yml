@@ -39,6 +39,7 @@ alpine-edge-ansible:
   script: >2-
     ansible-playbook
     -c local
+    -u $(id -un)
     -i localhost,
     -v
     packages/$CI_JOB_NAME/main.yaml
