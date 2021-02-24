@@ -19,15 +19,11 @@ alpine-edge-ansible:
       --username gitlab-ci-token
       --password $CI_BUILD_TOKEN
       $CI_REGISTRY
-  # py3-appdirs and py3-six listed explicitly as they are missing dependencies
-  # for py3-virtualenv, see:
-  # https://gitlab.alpinelinux.org/alpine/aports/-/merge_requests/18741
   script: >2-
     echo -e "section_start:$(date +%s):site\r\e[0KBuild container"
     && container=$(buildah from alpine:edge)
     && buildah run $container -- apk upgrade
     && buildah run $container -- apk add ansible py3-virtualenv nodejs npm
-    && buildah run $container -- apk add py3-appdirs py3-six
     && buildah run $container -- ansible --version
     && buildah run $container -- virtualenv --version
     && buildah commit $container $IMAGE_TAG
