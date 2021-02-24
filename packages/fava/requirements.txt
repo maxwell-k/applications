@@ -6,7 +6,7 @@
 #
 attrs==20.3.0             # via pytest
 babel==2.9.0              # via fava, flask-babel
-beancount==2.3.2          # via -r requirements.in, fava
+beancount==2.3.3          # via -r requirements.in, fava
 beautifulsoup4==4.9.3     # via beancount
 bottle==0.12.19           # via beancount
 cachetools==4.1.1         # via google-auth
@@ -28,7 +28,7 @@ iniconfig==1.1.1          # via pytest
 itsdangerous==1.1.0       # via flask
 jaraco.functools==3.0.1   # via cheroot
 jinja2==2.11.2            # via -r requirements.in, fava, flask, flask-babel
-lxml==4.6.1               # via -r requirements.in, beancount
+lxml==4.6.2               # via -r requirements.in, beancount
 markdown2==2.3.10          # via fava
 markupsafe==1.1.1         # via jinja2
 more-itertools==8.6.0     # via cheroot, jaraco.functools
