@@ -4,6 +4,7 @@
     - name: Install dependencies with compiled extensions on Alpine Linux
       apk:
         name:
+          - py3-setuptools
           - "py3-lxml{{ apk_version | default('~4.6.2') }}" # ./requirements.in
         repository:
           - http://dl-cdn.alpinelinux.org/alpine/edge/main

@@ -1,6 +1,12 @@
 - name: Install {{ playbook_dir | basename }} application with pip
   hosts: all
   pre_tasks:
+    - name: Install dependencies that don't belong in requirements.txt
+      apk:
+        name:
+          - py3-setuptools
+        repository:
+          - http://dl-cdn.alpinelinux.org/alpine/edge/main
     - name: Install git so that --version works
       become: yes
       package: { name: git }

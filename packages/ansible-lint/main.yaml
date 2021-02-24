@@ -8,6 +8,7 @@
           - "py3-cffi{{ apk_version | default('~1.14.5') }}" # "
           - "py3-cryptography{{ apk_version | default('~3.3.2') }}" # "
           - "py3-jinja2{{ apk_version | default('~2.11.2') }}" # "
+          - py3-setuptools
           - "py3-ruamel.yaml.clib{{ apk_version | default('~0.2.2') }}" # "
         repository:
           - http://dl-cdn.alpinelinux.org/alpine/edge/main
