@@ -4,13 +4,22 @@
 #
 #    pip-compile
 #
-docutils==0.16            # via hovercraft
-hovercraft==2.7           # via -r requirements.in
-lxml==4.6.2               # via -r requirements.in, hovercraft
-pathtools==0.1.2          # via watchdog
-pygments==2.7.2           # via hovercraft
-svg.path==4.0.2           # via hovercraft
-watchdog==0.10.4          # via hovercraft
+docutils==0.16
+    # via hovercraft
+hovercraft==2.7
+    # via -r requirements.in
+lxml==4.6.3
+    # via
+    #   -r requirements.in
+    #   hovercraft
+pathtools==0.1.2
+    # via watchdog
+pygments==2.7.2
+    # via hovercraft
+svg.path==4.0.2
+    # via hovercraft
+watchdog==0.10.4
+    # via hovercraft
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools
