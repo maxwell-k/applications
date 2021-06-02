@@ -4,16 +4,36 @@
 #
 #    pip-compile
 #
-binaryornot==0.4.4        # via reuse
-boolean.py==3.8           # via license-expression, reuse
-certifi==2020.11.8       # via requests
-chardet==3.0.4            # via binaryornot, python-debian, requests
-idna==2.10                 # via requests
+binaryornot==0.4.4
+    # via reuse
+boolean.py==3.8
+    # via
+    #   license-expression
+    #   reuse
+certifi==2020.11.8
+    # via requests
+chardet==3.0.4
+    # via
+    #   binaryornot
+    #   python-debian
+    #   requests
+idna==2.10
+    # via requests
 jinja2==2.11.2
-license-expression==1.2   # via reuse
-markupsafe==1.1.1         # via jinja2
-python-debian==0.1.38     # via reuse
-requests==2.25.0          # via reuse
+    # via
+    #   -r requirements.in
+    #   reuse
+license-expression==1.2
+    # via reuse
+markupsafe==1.1.1
+    # via jinja2
+python-debian==0.1.38
+    # via reuse
+requests==2.25.0
+    # via reuse
 reuse==0.11.1
-six==1.15.0               # via python-debian
-urllib3==1.26.2           # via requests
+    # via -r requirements.in
+six==1.15.0
+    # via python-debian
+urllib3==1.26.5
+    # via requests
