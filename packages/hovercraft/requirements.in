@@ -1,2 +1,2 @@
 hovercraft
-lxml==4.6.2 # https://pkgs.alpinelinux.org/package/edge/community/x86_64/py3-lxml
+lxml==4.6.5 # https://pkgs.alpinelinux.org/package/edge/community/x86_64/py3-lxml
