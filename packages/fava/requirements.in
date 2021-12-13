@@ -4,4 +4,4 @@ fava
 jinja2==2.11.2 # https://pkgs.alpinelinux.org/package/edge/main/x86_64/py3-jinja2
 beancount==2.3.3 # https://pkgs.alpinelinux.org/package/edge/community/x86_64/beancount
 ## Indirect
-lxml==4.6.2  # https://pkgs.alpinelinux.org/package/edge/community/x86_64/py3-lxml
+lxml==4.6.5  # https://pkgs.alpinelinux.org/package/edge/community/x86_64/py3-lxml
